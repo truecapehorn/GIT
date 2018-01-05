@@ -1,0 +1,70 @@
+body
+{
+	font-family: tahoma, helvetica, arial, sans-serif;
+	font-size: 12px;
+}
+a
+{
+	color: #4CAF50;
+}
+
+
+
+#tb1
+{
+	border-collapse: separate;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#tb1 td, #tb1 th
+{
+	border: 1px #000000 solid;
+	padding: 5px;
+}
+#tb1 th
+{
+	background-color: #4CAF50;
+	color: white;
+}
+#tb1 .row_l
+{
+	background-color: #f3f3f3;
+}
+
+}
+#tb1 caption
+{
+	text-decoration: underline;
+	font-weight: bold;
+	caption-side: bottom;
+	padding: 10 px;
+}
+#tb1 thead th
+{
+	border: 1px #000000 dashed;
+}
+#tb1 tbody
+{
+	font-style: italic;
+}
+#tb1 tfoot td
+{
+	border: 1px #000000 dashed;
+	background-color: #bee5c0;
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#tb1 tr:nth-child(even)
+{
+	background-color: #ffff;
+}
+
+#tb1 tr:hover
+{
+	text-decoration: none;
+	background-color: #bee5c0;
+	color: black;
+}

@@ -1,0 +1,72 @@
+.page-header {
+    background: @brand-success;
+}
+
+
+.content {
+    margin-left: 40px;
+}
+
+
+.date {
+    text-align: right;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.row-form textarea, .row-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 50px;
+}
+
+
+.link {
+    color: #000000;
+}
+
+tr {
+    text-align: center;
+}
+
+
+.bg-1 {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #474e5d;
+    color: #ffffff;
+}
+.bg-3 {
+    background-color: #ffffff;
+    color: #555555;
+}
+.bg-4 {
+    background-color: #2f2f2f;
+    color: #fff;
+}
+.container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}

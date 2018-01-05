@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-29 06:48+0100\n"
+"PO-Revision-Date: 2016-02-29 05:48+0000\n"
+"Last-Translator: b'  <robert@gorczynski.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Translated-Using: django-rosetta 0.7.6\n"
+
+#: cart/forms.py:10
+msgid "Ilość"
+msgstr "Quantity"
+
+#: coupons/forms.py:5
+msgid "Kupon"
+msgstr "Coupon"
+
+#: myshop/settings.py:111
+msgid "polski"
+msgstr "Polish"
+
+#: myshop/settings.py:112
+msgid "angielski"
+msgstr "English"
+
+#: myshop/urls.py:25
+msgid "^cart/"
+msgstr ""
+
+#: myshop/urls.py:26
+msgid "^orders/"
+msgstr ""
+
+#: myshop/urls.py:28
+msgid "^payment/"
+msgstr ""
+
+#: myshop/urls.py:29
+msgid "^coupons/"
+msgstr ""
+
+#: payment/urls.py:6
+msgid "^process/$"
+msgstr ""
+
+#: payment/urls.py:7
+msgid "^done/$"
+msgstr ""
+
+#: payment/urls.py:8
+msgid "^canceled/$"
+msgstr ""
+
+#: shop/templates/shop/base.html:7 shop/templates/shop/base.html.py:12
+msgid "Mój sklep"
+msgstr "My shop"
+
+#: shop/templates/shop/base.html:18
+msgid "Język"
+msgstr "Language"
+
+#: shop/templates/shop/base.html:34
+msgid "Koszyk"
+msgstr "Cart"
+
+#: shop/templates/shop/base.html:36
+#, python-format
+msgid " %(total_items)s produkt%(total_items_plural)s, %(total_price)s zł"
+msgstr ""
+
+#: shop/templates/shop/base.html:39
+msgid "Koszyk jest pusty."
+msgstr "Your cart is empty."
+
+#: shop/templates/shop/product/detail.html:19
+msgid "Dodaj do koszyka"
+msgstr "Add to cart"

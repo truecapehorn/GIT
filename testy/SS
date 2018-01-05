@@ -1,0 +1,55 @@
+
+macro_command main()
+short R1, R2, R3, R4,R5, R6, R7, R8,R9, R10, R11, R12,R13, R14,,R15, R16
+short CZAS1, CZAS2, CZAS3, CZAS4, CZAS5, CZAS6, CZAS7, CZAS8, CZAS9, CZAS10, CZAS11, CZAS12, CZAS13, CZAS14, CZAS15, CZAS16
+short P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16
+
+//get data
+GetData(R1, "FATEK", R, 1, 1)
+GetData(R2, "FATEK", R, 2, 1)
+GetData(R3, "FATEK", R, 3, 1)
+GetData(R4, "FATEK", R, 4, 1)
+GetData(R5, "FATEK", R, 5, 1)
+GetData(R6, "FATEK", R, 6, 1)
+GetData(R7, "FATEK", R, 7, 1)
+GetData(R8, "FATEK", R, 8, 1)
+GetData(R9, "FATEK", R, 9, 1)
+GetData(R10, "FATEK", R, 10, 1)
+GetData(R11, "FATEK", R, 11, 1)
+GetData(R12, "FATEK", R, 12, 1)
+GetData(R13, "FATEK", R, 13, 1)
+GetData(R14, "FATEK", R, 14, 1)
+GetData(R15, "FATEK", R, 15, 1)
+GetData(R16, "FATEK", R, 16, 1)
+
+GetData(CZAS1, "FATEK", R, 101, 1)
+GetData(CZAS2, "FATEK", R, 102, 1)
+GetData(CZAS3, "FATEK", R, 103, 1)
+GetData(CZAS4, "FATEK", R, 104, 1)
+GetData(CZAS5, "FATEK", R, 105, 1)
+GetData(CZAS6, "FATEK", R, 106, 1)
+GetData(CZAS7, "FATEK", R, 107, 1)
+GetData(CZAS8, "FATEK", R, 108, 1)
+GetData(CZAS9, "FATEK", R, 109, 1)
+GetData(CZAS10, "FATEK", R, 110, 1)
+GetData(CZAS11, "FATEK", R, 111, 1)
+GetData(CZAS12, "FATEK", R, 112, 1)
+GetData(CZAS13, "FATEK", R, 113, 1)
+GetData(CZAS14, "FATEK", R, 114, 1)
+GetData(CZAS15, "FATEK", R, 115, 1)
+GetData(CZAS16, "FATEK", R, 116, 1)
+
+
+//ODLICZANIE
+T1=N202-T202
+T2=N203-T203
+T3=N204-T204
+T4=N205-T205
+
+//SetData
+SetData(T1 "Local HMI", LW, 0, 1)
+SetData(T2 "Local HMI", LW, 4, 1)
+SetData(T3 "Local HMI", LW, 8, 1)
+SetData(T4 "Local HMI", LW, 12, 1)
+
+end macCZASo_command

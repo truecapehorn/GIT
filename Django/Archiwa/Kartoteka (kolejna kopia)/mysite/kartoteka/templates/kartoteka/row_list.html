@@ -1,0 +1,60 @@
+{% extends 'kartoteka/base.html' %}
+
+{% block title %}Baza danych{% endblock %}
+
+
+{% block content %}
+
+	<h1>Baza danych klientów ELAM</h1>
+	<table id="tb1" summary="Baza danych klientów ELAM">
+		<!-- Podpis -->
+	<caption><h2>Klienci firmy elam</h2></caption>
+	<!-- /Podpis -->
+
+	<!-- Nag��wek -->
+	<thead>
+	<tr>
+		<th>Lp:</th>
+		<th>Inwestor:</th>
+		<th>Numer umowy:</th>
+		<th>Kod:</th>
+		<th>Status:</th>
+		<th>Kierownik:</th>
+		<th>FV:</th>
+		<th>Projektant:</th>
+		<th>Uwagi:</th>
+		<th>Kraj:</th>
+		<th>Dodany:</th>
+	</tr>
+	</thead>
+	<!-- /Nagłowek -->
+	<!-- Stopka -->
+	<tfoot>
+		{% include "pagination.html" with page=page_obj %}
+	</tfoot>
+	<!-- /Stopka -->
+
+	<tbody>
+	{% for data in row_list %}
+	<!-- Zawartosc -->
+	<tr class="row_l">
+		<td>{{ data.entry_code }}</td>
+		<td><a href="{% url 'row_detail' pk=data.pk %}">{{ data.investor }}</a></td>
+		<td>{{ data.contract_number }}</td>
+		<td>{{ data.zip_code }}</td>
+		<td>{{ data.state }}</td>
+		<td>{{ data.manager }}</td>
+		<td>{{ data.invoice }}</td>
+		<td>{{ data.design }}</td>
+		<td>{{ data.comments }}</td>
+		<td>{{ data.coutry }}</td>
+		<td>{{ data.entry_date }}</td>
+
+	</tr>
+	{% endfor %}
+
+	</tbody>
+
+
+
+{% endblock %}

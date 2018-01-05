@@ -1,0 +1,49 @@
+<!DOCTYPE html> {% load staticfiles %}
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div>
+
+        <nav class="navbar navbar-inverse ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                    <a class="navbar-brand" href="{% url 'row_list' %}">KARTOTEKA ELAM</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url "row_new" %}">DODAJ</a></li>
+                        <li><a href="{% url "row_search" %}">SZUKAJ</a></li>
+                        <li><a href="#">LINK 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="container-fluid bg-4 text-center">
+      <p>Strona made by  <a href="http://www.filmweb.pl/film/Django-2012-620541"> Django  </p>
+    </footer>
+</body>
+
+</html>

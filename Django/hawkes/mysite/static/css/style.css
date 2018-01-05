@@ -1,0 +1,61 @@
+body
+{
+	font-family: tahoma, helvetica, arial, sans-serif;
+	font-size: 10px;
+}
+a
+{
+	color: #2a66b7;
+}
+a:hover
+{
+	color: #2ab797;
+	text-decoration: none;
+}
+#tb1
+{
+	border-collapse: separate;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#tb1 td, #tb1 th
+{
+	border: 1px #000000 solid;
+	padding: 30px;
+}
+#tb1 th
+{
+	background-color: #bed4ee;
+}
+#tb1 .row_l
+{
+	background-color: #f3f3f3;
+}
+#tb1 .row_d
+{
+	background-color: #e7ebf0;
+}
+#tb1 caption
+{
+	text-decoration: underline;
+	font-weight: bold;
+	caption-side: bottom;
+	padding: 30 px;
+}
+#tb1 thead th
+{
+	border: 1px #000000 dashed;
+}
+#tb1 tbody
+{
+	font-style: italic;
+}
+#tb1 tfoot td
+{
+	border: 1px #000000 dashed;
+	background-color: #bee5c0;
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}

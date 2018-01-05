@@ -1,0 +1,120 @@
+body
+{
+	font-family: tahoma, helvetica, arial, sans-serif;
+	font-size: 12px;
+}
+
+#tb1
+{
+	border-collapse: separate;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#tb1 td, #tb1 th
+{
+	border: 1px #000000 solid;
+	padding: 5px;
+}
+#tb1 th
+{
+	background-color: #4CAF50;
+	color: white;
+}
+#tb1 .row_l
+{
+	background-color: #f3f3f3;
+}
+
+}
+#tb1 caption
+{
+	text-decoration: underline;
+	font-weight: bold;
+	caption-side: bottom;
+	padding: 10 px;
+}
+#tb1 thead th
+{
+	border: 1px #000000 dashed;
+}
+#tb1 tbody
+{
+	font-style: italic;
+}
+#tb1 tfoot td
+{
+	border: 1px #000000 dashed;
+	background-color: #bee5c0;
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#tb1 tr:nth-child(even)
+{
+	background-color: #ffff;
+}
+
+#tb1 tr:hover
+{
+	text-decoration: none;
+	background-color: #bee5c0;
+	color: black;
+}
+
+
+
+.page-header {
+    background-color: #4CAF50;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    float: right;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.row-form textarea, .row-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 50px;
+}
+
+.row {
+    margin-bottom: 100px;
+}
+
+.row h1 a, .row h1 a {
+    color: #828282;
+
+}
+
+
+
+
+

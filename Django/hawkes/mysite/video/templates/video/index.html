@@ -1,0 +1,55 @@
+{% extends 'video/base.html' %}
+
+
+{% block title %}Video Page{% endblock %}
+
+{% block content %}
+	<h1>Youtube video</h1>
+
+		<table id="tb1" summary="Klienci sklepu internetowego, kt�rzy za�o�yli konto 06-2011">
+			<!-- Podpis -->
+			<caption>Klienci sklepu internetowego, kt�rzy za�o�yli konto 06-2011</caption>
+			<!-- /Podpis -->
+			<!-- Nag��wek -->
+			<thead>
+			<tr>
+				<th>Imi�:</th>
+				<th>Nazwisko:</th>
+				<th>Adres:</th>
+				<th>Miasto:</th>
+				<th>Kod pocztowy:</th>
+				<th>Kraj:</th>
+				<th>E-mail:</th>
+			</tr>
+			</thead>
+			<!-- /Nag��wek -->
+			<!-- Stopka -->
+			<tfoot>
+			<tr>
+				<td colspan="15">Statystyki z roku 2011</td>
+			</tr>
+			</tfoot>
+			<!-- /Stopka -->
+
+
+		{% for video in data %}
+		<h2>{{ video.title }}</h2><br />
+
+		<!-- Zawarto�� -->
+		<tbody>
+		<tr class="row_l">
+			<td>{{ video.title }}</td>
+			<td>ddddk</td>
+			<td>{{ video.video_id }}</td>
+			<td>Warszawa</td>
+			<td>01-857</td>
+			<td>Polska</td>
+			<td><a href="mailto:KrysiaKowalczyk@pookmail.com">KrysiaKowalczyk@pookmail.com</a></td>
+		</tr>
+
+		{% endfor %}
+
+
+
+
+{% endblock %}

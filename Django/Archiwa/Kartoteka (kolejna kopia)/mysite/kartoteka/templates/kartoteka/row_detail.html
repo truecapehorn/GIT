@@ -1,0 +1,25 @@
+{% extends 'kartoteka/base.html' %}
+
+{% block title %}Baza danych{% endblock %}
+
+
+{% block content %}
+
+	<h1>{{ row.pk }}: {{ row.investor }}</h1>
+	<p><strong>Data dodania:</strong>    {{ row.entry_date }}</p>
+	<p><strong>Data uaktualnienia:</strong>    {{ row.last_modified }}</p>
+	<p><strong>Autor:</strong>    {{ row.author }}</p>
+	<p><strong>Status:</strong>    {{ row.state }}</p>
+	<p><strong>Kraj:</strong>    {{ row.coutry }}</p>
+	<p><strong>Numer umowy:</strong>    {{ row.contract_number }}</p>
+	<p><strong>Kod:</strong>    {{ row.zip_code }}</p>
+	<p><strong>Kierownik:</strong>    {{ row.manager }}</p>
+	<p><strong>FV:</strong>    {{ row.invoice }}</p>
+	<p><strong>Projektant:</strong>    {{ row.design }}</p>
+	<p><strong>Wykonawca instalacji:</strong>    {{row.doer }}</p>
+	<p><strong>Data realizacji:</strong>    {{ row.implementation_date }}</p>
+	<p><strong>Data róźnicówki:</strong>    {{ row.rcd_date }}</p>
+	<p><strong>Uwagi:</strong>    {{ row.comments }}</p>
+
+
+{% endblock %}

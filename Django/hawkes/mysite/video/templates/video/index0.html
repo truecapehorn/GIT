@@ -1,0 +1,16 @@
+{% extends 'video/base.html' %}
+
+{% block title %}Video Page{% endblock %}
+
+{% block content %}
+<h1>Youtube video</h1>
+	<h2>{{ data.title }}</h2><br />
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ data.video_id }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+	{% for video in data %}
+	<h2>{{ video.title }}</h2><br />
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.video_id }}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+	{% endfor %}
+
+
+{% endblock %}

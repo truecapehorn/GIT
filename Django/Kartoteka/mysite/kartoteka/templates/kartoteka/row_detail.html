@@ -1,0 +1,28 @@
+{% extends 'kartoteka/base.html' %}
+
+{% block title %}Baza danych szczegóły{% endblock %}
+
+
+{% block content %}
+	<div class="container">
+		<h2>{{ row.pk }}: {{ row.investor }}</h2>
+		<a class="btn btn-default" href="{% url 'row_edit' pk=row.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a class="btn btn-default" href="{% url 'row_delete' pk=row.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+		<p class="date"><strong>Data dodania:</strong>    {{ row.entry_date }}</p>
+		<p class="date"><strong>Data uaktualnienia:</strong>    {{ row.last_modified }}</p>
+		<p><strong>Autor:</strong>    {{ row.author }}</p>
+		<p><strong>Status:</strong>    {{ row.state }}</p>
+		<p><strong>Kraj:</strong>    {{ row.coutry }}</p>
+		<p><strong>Numer umowy:</strong>    {{ row.contract_number }}</p>
+		<p><strong>Kod:</strong>    {{ row.zip_code }}</p>
+		<p><strong>Kierownik:</strong>    {{ row.manager }}</p>
+		<p><strong>FV:</strong>    {{ row.invoice }}</p>
+		<p><strong>Projektant:</strong>    {{ row.design }}</p>
+		<p><strong>Wykonawca instalacji:</strong>    {{row.doer }}</p>
+		<p><strong>Data realizacji:</strong>    {{ row.implementation_date }}</p>
+		<p><strong>Data róźnicówki:</strong>    {{ row.rcd_date }}</p>
+		<p><strong>Uwagi:</strong>    {{ row.comments }}</p>
+	</div>
+
+
+{% endblock %}

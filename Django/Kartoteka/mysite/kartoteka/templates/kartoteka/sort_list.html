@@ -1,0 +1,56 @@
+{% extends 'kartoteka/base.html' %}
+
+{% block content %}
+<div class="col-md-12">
+	<table id="tb1" summary="Baza danych klientów ELAM" class="table table-striped table table-hover table-bordered">
+		<!-- Podpis -->
+	<caption><h2>Klienci firmy elam sorted</h2></caption>
+	<!-- /Podpis -->
+
+	<!-- Nag��wek -->
+	<thead>
+	<tr>
+		<th>Lp:</th>
+		<th>Inwestor:</th>
+		<th>Numer umowy:</th>
+		<th>Kod:</th>
+		<th>Status:</th>
+		<th>Kierownik:</th>
+		<th>FV:</th>
+		<th>Projektant:</th>
+		<th>Uwagi:</th>
+		<th>Kraj:</th>
+		<th>Dodany:</th>
+	</tr>
+	</thead>
+	<!-- /Nagłowek -->
+	<!-- Stopka -->
+	<tfoot>
+	</tfoot>
+	<!-- /Stopka -->
+
+	<tbody>
+	{% for data in sort_list %}
+	<!-- Zawartosc -->
+	<tr class="t_row">
+		<td>{{ data.entry_code }}</td>
+		<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.investor }}</a></td>
+		<td>{{ data.contract_number }}</td>
+		<td>{{ data.zip_code }}</td>
+		<td>{{ data.state }}</td>
+		<td>{{ data.manager }}</td>
+		<td>{{ data.invoice }}</td>
+		<td>{{ data.design }}</td>
+		<td>{{ data.comments }}</td>
+		<td>{{ data.coutry }}</td>
+		<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.entry_date }}</a></td>
+
+	</tr>
+	{% endfor %}
+
+	</tbody>
+
+	{% include "pagination.html" with page=page_obj %}
+</div>
+
+{% endblock %}

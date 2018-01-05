@@ -1,0 +1,53 @@
+{% extends 'baza/base.html' %}
+
+{% block title %}Baza danych{% endblock %}
+
+{% block content %}
+	<h1>ELAM</h1>
+
+	<table id="tb1" summary="Baza danych kliętow Niemcy">
+		<!-- Podpis -->
+	<caption>Klienci firmy elam</caption>
+	<!-- /Podpis -->
+	<!-- Nag��wek -->
+	<thead>
+	<tr>
+		<th>Inwestor:</th>
+		<th>Numer umowy:</th>
+		<th>Kod:</th>
+		<th>Status:</th>
+		<th>Kierownik:</th>
+		<th>FV:</th>
+		<th>Elektro:</th>
+		<th>Uwagi:</th>
+		<th>Kraj:</th>
+		<th>Dodany:</th>
+	</tr>
+	</thead>
+	<!-- /Nagłowek -->
+	<!-- Stopka -->
+	<tfoot>
+	</tfoot>
+	<!-- /Stopka -->
+	<tbody>
+	{% for dane in baza %}
+	<!-- Zawartosc -->
+
+	<tr class="row_l">
+		<td>{{ dane.inwestor }}</td>
+		<td>{{ dane.nr_umowy }}</td>
+		<td>{{ dane.kod }}</td>
+		<td>{{ dane.status }}</td>
+		<td>{{ dane.kierownik }}</td>
+		<td>{{ dane.fv }}</td>
+		<td>{{ dane.montaz }}</td>
+		<td>{{ dane.uwagi }}</td>
+		<td>{{ dane.kraj }}</td>
+		<td>{{ dane.data_dodania }}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+	{% include "pagination.html" with page=page_obj %}
+
+
+{% endblock %}

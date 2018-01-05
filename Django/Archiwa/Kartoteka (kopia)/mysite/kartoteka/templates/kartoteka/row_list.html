@@ -1,0 +1,64 @@
+{% extends 'kartoteka/base.html' %}
+
+{% block title %}Baza danych{% endblock %}
+
+
+{% block content %}
+
+	<h1>Baza danych klientów ELAM</h1>
+	<table id="tb1" summary="Baza danych klientów ELAM">
+		<!-- Podpis -->
+	<caption><h2>Klienci firmy elam</h2></caption>
+	<!-- /Podpis -->
+
+	<!-- Nag��wek -->
+	<thead>
+	<tr>
+		<th>Lp:</th>
+		<th>Inwestor:</th>
+		<th>Numer umowy:</th>
+		<th>Kod:</th>
+		<th>Status:</th>
+		<th>Kierownik:</th>
+		<th>FV:</th>
+		<th>Elektro:</th>
+		<th>Uwagi:</th>
+		<th>Kraj:</th>
+		<th>Dodany:</th>
+	</tr>
+	</thead>
+	<!-- /Nagłowek -->
+	<!-- Stopka -->
+	<tfoot>
+		{% include "pagination.html" with page=page_obj %}
+	</tfoot>
+	<!-- /Stopka -->
+
+	<tbody>
+	{% for data in row_list %}
+	<!-- Zawartosc -->
+	<tr class="row_l">
+		<td>{{ data.sufix }}</td>
+		<td><a href="{% url 'row_detail' pk=data.pk %}">{{ data.inwestor }}</a></td>
+		<td>{{ data.nr_umowy }}</td>
+		<td>{{ data.kod }}</td>
+		<td>{{ data.status }}</td>
+		<td>{{ data.kierownik }}</td>
+		<td>{{ data.fv }}</td>
+		<td>{{ data.projekt }}</td>
+		<td>{{ data.uwagi }}</td>
+		<td>{{ data.kraj }}</td>
+		<td>{{ data.data_dodania }}</td>
+
+
+
+
+
+	</tr>
+	{% endfor %}
+
+	</tbody>
+
+
+
+{% endblock %}

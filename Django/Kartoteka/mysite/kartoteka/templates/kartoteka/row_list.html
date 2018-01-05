@@ -1,0 +1,51 @@
+{% extends 'kartoteka/base.html' %}
+
+{% block title %}Baza danych{% endblock %}
+{% block content %}
+<div class="container-fluid">
+	<h2>Tabela zbiorcza</h2>
+	<p>Jakis opis strony </p>
+	{% include "pagination.html" with page=page_obj %}
+	<table  class="table table-striped table table-hover table-bordered ">
+		<thead>
+			<!-- Modele -->
+			<tr class="bg-4">
+				<th>Lp:</th>
+				<th>Inwestor:</th>
+				<th>Numer umowy:</th>
+				<th>Kod:</th>
+				<th>Status:</th>
+				<th>Kierownik:</th>
+				<th>FV:</th>
+				<th>Projektant:</th>
+				<th>Uwagi:</th>
+				<th>Kraj:</th>
+				<th>Dodany:</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<!-- Stopka -->
+		</tfoot>
+		<tbody>
+			<!-- Zawartosc -->
+			{% for data in row_list %}
+			<tr>
+				<td>{{ data.entry_code }}</td>
+				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.investor }}</a></td>
+				<td>{{ data.contract_number }}</td>
+				<td>{{ data.zip_code }}</td>
+				<td>{{ data.state }}</td>
+				<td>{{ data.manager }}</td>
+				<td>{{ data.invoice }}</td>
+				<td>{{ data.design }}</td>
+				<td>{{ data.comments }}</td>
+				<td>{{ data.coutry }}</td>
+				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.entry_date }}</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</div>
+
+{% endblock %}

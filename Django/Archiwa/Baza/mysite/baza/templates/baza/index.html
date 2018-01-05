@@ -1,0 +1,58 @@
+{% extends 'baza/base.html' %}
+
+{% block title %}Baza danych{% endblock %}
+
+
+{% block content %}
+
+	<h1>Baza danych klientów ELAM</h1>
+	<table id="tb1" summary="Baza danych klientów ELAM">
+		<!-- Podpis -->
+	<caption><h2>Klienci firmy elam</h2></caption>
+	<!-- /Podpis -->
+
+	<!-- Nag��wek -->
+	<thead>
+	<tr>
+		<th>Lp:</th>
+		<th>Inwestor:</th>
+		<th>Numer umowy:</th>
+		<th>Kod:</th>
+		<th>Status:</th>
+		<th>Kierownik:</th>
+		<th>FV:</th>
+		<th>Projekt:</th>
+		<th>Uwagi:</th>
+		<th>Kraj:</th>
+		<th>Dodany:</th>
+	</tr>
+	</thead>
+	<!-- /Nagłowek -->
+	<!-- Stopka -->
+	<tfoot>
+		{% include "pagination.html" with page=page_obj %}
+	</tfoot>
+	<!-- /Stopka -->
+
+	<tbody>
+	{% for dane in baza %}
+	<!-- Zawartosc -->
+	<tr class="row_l">
+		<td>{{dane.sufix}}</td>
+		<td>{{ dane.inwestor }}</td>
+		<td>{{ dane.nr_umowy }}</td>
+		<td>{{ dane.kod }}</td>
+		<td>{{ dane.status }}</td>
+		<td>{{ dane.kierownik }}</td>
+		<td>{{ dane.fv }}</td>
+		<td>{{ dane.projekt }}</td>
+		<td>{{ dane.uwagi }}</td>
+		<td>{{ dane.kraj }}</td>
+		<td>{{ dane.data_dodania }}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+
+
+
+{% endblock %}
