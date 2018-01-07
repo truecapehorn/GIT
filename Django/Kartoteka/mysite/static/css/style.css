@@ -4,7 +4,8 @@
 
 
 .content {
-    margin-left: 40px;
+    margin-left: 0px;
+    background-color: white;
 }
 
 
@@ -69,4 +70,9 @@ tr {
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
+}
+
+#nav_bar {
+background-color: #2f2f2f;
+border-color: #2f2f2f;
 }
