@@ -1,60 +1,55 @@
-{% extends 'kartoteka/base.html' %}
-{% block title %}Baza danych szukaj{% endblock %}
-{% block content %}
+{% extends 'kartoteka/base.html' %} {% block title %}Baza danych szukaj{% endblock %} {% block content %}
 <div class="container-fluid">
 	{% if "query" in request.GET %}
 	<h2>Kolumna "{{ cd.col }}" zawierająca słowo "{{ cd.query }}"</h2>
-	<h3>Znaleziono {{ total_results }} wynik{{ total_results|pluralize:"i" }}</h3>
-	{% if total_results %}
-		<table id="tb2" class="table table-striped table table-hover table-bordered">
-		<thead>
-		<tr class="bg-4">
-			<th>Lp:</th>
-			<th>Inwestor:</th>
-			<th>Numer umowy:</th>
-			<th>Kod:</th>
-			<th>Status:</th>
-			<th>Kierownik:</th>
-			<th>FV:</th>
-			<th>Projektant:</th>
-			<th>Uwagi:</th>
-			<th>Kraj:</th>
-			<th>Dodany:</th>
-		</tr>
+	<h3>Znaleziono {{ total_results }} wynik{{ total_results|pluralize:"i" }}</h3> {% if total_results %}
+	<table class="table table-striped table table-hover table-bordered ">
+		<thead class="theader">
+			<tr>
+				<th>Lp:</th>
+				<th>Inwestor:</th>
+				<th>Numer umowy:</th>
+				<th>Kod:</th>
+				<th>Status:</th>
+				<th>Kierownik:</th>
+				<th>FV:</th>
+				<th>Projektant:</th>
+				<th>Uwagi:</th>
+				<th>Kraj:</th>
+				<th>Dodany:</th>
+			</tr>
 		</thead>
 		<tfoot></tfoot>
-		{% endif %}
-		{% for data in results %}
+		{% endif %} {% for data in results %}
 		<tbody>
-		<!-- Zawartosc -->
-		<tr>
-			<td>{{ data.entry_code }}</td>
-			<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.investor }}</a></td>
-			<td>{{ data.contract_number }}</td>
-			<td>{{ data.zip_code }}</td>
-			<td>{{ data.state }}</td>
-			<td>{{ data.manager }}</td>
-			<td>{{ data.invoice }}</td>
-			<td>{{ data.design }}</td>
-			<td>{{ data.comments }}</td>
-			<td>{{ data.coutry }}</td>
-			<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.entry_date }}</a></td>
+			<!-- Zawartosc -->
+			<tr>
+				<td>{{ data.entry_code }}</td>
+				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.investor }}</a></td>
+				<td>{{ data.contract_number }}</td>
+				<td>{{ data.zip_code }}</td>
+				<td>{{ data.state }}</td>
+				<td>{{ data.manager }}</td>
+				<td>{{ data.invoice }}</td>
+				<td>{{ data.design }}</td>
+				<td>{{ data.comments }}</td>
+				<td>{{ data.coutry }}</td>
+				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.entry_date }}</a></td>
 
-		</tr>
+			</tr>
 		</tbody>
-	{% empty %}
-	  <p>Brak wyników dla podanego zapytania.</p>
-	{% endfor %}
-	<p><a href="{% url "row_search" %}">Szukaj ponownie</a></p>
+		{% empty %}
+		<p>Brak wyników dla podanego zapytania.</p>
+		{% endfor %}
+		<p><a href="{% url "row_search" %}">Szukaj ponownie</a></p>
 	</table>
-	</div>
-	{% else %}
-	<div>
-		<h3>Szukaj</h3>
-		<form action="./" method="get">
+</div>
+{% else %}
+<div>
+	<h3>Szukaj</h3>
+	<form action="./" method="get">
 		{{ form.as_table }}
 		<input type="submit" value="Szukaj">
-		</form>
-	</div>
-{% endif %}
-{% endblock %}
+	</form>
+</div>
+{% endif %} {% endblock %}
