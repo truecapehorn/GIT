@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 from . import views
 
 #app_name = 'kartoteka'
@@ -10,4 +11,6 @@ urlpatterns = [
     url(r'^row/new/$', views.row_new, name='row_new'),
     url(r'^row/(?P<pk>[0-9]+)/edit/$', views.row_edit, name='row_edit'),
     url(r'^row/(?P<pk>[0-9]+)/delete/$', views.row_delete, name='row_delete'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
 ]
