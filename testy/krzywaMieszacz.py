@@ -12,17 +12,26 @@ while x > -31.0*wsp:
 
 def func(x):
 
+    c = 30.0*wsp # temp dla 0 stopni
+    i=0
+    p=0
+    q=0
+    while p!=-30 and q!=40 and c<40:
 
-    c = 33.0*wsp # temp dla 0 stopni
-    x1 = 20.0*wsp
-    y1 = 20.0*wsp
-    x2 = -20.0*wsp
-    y2 = 40.0*wsp
-    a = (y2 - (y1 * x2 / x1) + (c * x2 / x1) - c) / (((1 * (x2**2)) - ((1 * (x1**2) * x2) / x1)))
-    b = y1 / x1 - c / x1 - (a * (x1**2)) / x1
-    fun = a * x**2 + b * x + c
-    if x == -25:
-        print('f(x)=({})x**2 + ({})x + ({})'.format(a, b, c))
+        c+=0.1
+        x1 = 20.0*wsp
+        y1 = 20.0*wsp
+        x2 = -30.0*wsp
+        y2 = 40.0*wsp
+        a = (y2 - (y1 * x2 / x1) + (c * x2 / x1) - c) / (((1 * (x2**2)) - ((1 * (x1**2) * x2) / x1)))
+        b = y1 / x1 - c / x1 - (a * (x1**2)) / x1
+        fun = a * x**2 + b * x + c
+
+        p=-b/(2*a)
+        q=(-b**2+4*a*c)/(4*a)
+        print(c)
+
+    print('f(x)=({0})x**2 + ({1})x + ({2})\nWierzcholek: ({3},{4})'.format(a, b, c, p, q))
     #if x<-25:fun=42
 
     return fun,
