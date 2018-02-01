@@ -29,7 +29,11 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{% url "row_new" %}">DODAJ</a></li>
                         <li><a href="{% url "row_search" %}">SZUKAJ</a></li>
-                        <li><a href="{% url "login" %}">ZALOGUJ</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url "logout" %}">{{ user.get_username }} WYLOGUJ</a></li>
+                        {% else %}
+                            <li><a href="{% url "login" %}">ZALOGUJ</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -38,6 +42,7 @@
     </div>
 
     <div class="content">
+
         {% block content %}{% endblock %}
     </div>
 

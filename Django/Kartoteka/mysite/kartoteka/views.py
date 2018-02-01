@@ -3,6 +3,8 @@ from .models import Row
 from django.views.generic import ListView
 from .forms import RowForm, SearchForm
 from django.utils import timezone
+from django.contrib.auth import authenticate, login
+from django.views.generic import View
 
 
 # TODO: Dodac widoki: detail reckord
@@ -13,6 +15,8 @@ from django.utils import timezone
 # TODO: Zrobic okno ostrzeżeń przy kasowamiu, edytowaniu rekordu.
 # TODO: Dodac testy!!!
 # TODO: Dodac logowanie . Moze bac jak chris_hawks
+
+
 
 
 class RowsView(ListView):
