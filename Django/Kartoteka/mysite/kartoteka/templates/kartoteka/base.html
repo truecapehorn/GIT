@@ -43,7 +43,15 @@
 
     <div class="content">
 
+        {% if user.is_authenticated %}
+
         {% block content %}{% endblock %}
+
+        {% else %}
+         <h2>Zaloguj sie do bazy danych</h2>
+        {% block login_content %}{% endblock %}
+        {% endif %}
+
     </div>
 
     <footer class="container-fluid bg-4 text-center">
