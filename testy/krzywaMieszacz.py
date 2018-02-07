@@ -3,7 +3,7 @@ from math import sqrt as sqrt
 import matplotlib.pyplot as plt
 
 tzew = []
-wsp=1
+wsp=10
 x = 20.0*wsp
 while x > -31.0*wsp:
     tzew.append(x)
@@ -15,9 +15,9 @@ def func(x):
 
         c=30.0*wsp
         x1 = 20.0*wsp
-        y1 =12*wsp
+        y1 =18*wsp
         x2 = -30.0*wsp
-        y2 = 40.0*wsp
+        y2 = 38.0*wsp
 
         a = (y2 - (y1 * x2 / x1) + (c * x2 / x1) - c) / (((1 * (x2**2)) - ((1 * (x1**2) * x2) / x1)))
         b = y1 / x1 - c / x1 - (a * (x1**2)) / x1
