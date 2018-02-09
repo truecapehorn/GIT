@@ -11,10 +11,9 @@ print(jsones)
 data = json.loads(jsones.decode()) if not isinstance(jsones, dict) else jsones
 cities = ["{} ({})".format(d['name'], d['sys']['country']) for d in data['list']]
 temp =  ['Temperatura {}'.format(d['main']['temp']) for d in data['list']]
+wind=['Wiatr {}'.format(d['wind']['speed']) for d in data['list']]
 
 
 
 print(cities)
-print(temp[0])
-
-
+print(temp)
