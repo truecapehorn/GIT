@@ -2,11 +2,28 @@
 
 {% block title %}Login{% endblock %}
 
-{% block login_content %}
-  <h2>Login</h2>
+{% block login_content%}
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% if form.errors %}
+        <ul >
+            <li class="label label-danger">
+                Twoja nazwa użytkownika lub hasło nie jest prawidłowe.
+                Prosze o podanie prawidłowych danych.
+            </li>
+        </ul>
+    {% endif %}
+    <table class="login-form">
+      <tr>
+        <td>Użykownik:  </td>
+        <td>{{form.username}}</td>
+      </tr>
+      <tr>
+        <td>Hasło:  </td>
+        <td>{{form.password}}</td>
+      </tr>
+    </table>
     <button type="submit">Login</button>
   </form>
+
 {% endblock %}

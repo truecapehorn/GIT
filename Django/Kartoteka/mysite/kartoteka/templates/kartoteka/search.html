@@ -48,6 +48,7 @@
 <div>
 	<h3>Szukaj</h3>
 	<form action="./" method="get">
+		{% csrf_token %}
 		{{ form.as_table }}
 		<input type="submit" value="Szukaj">
 	</form>

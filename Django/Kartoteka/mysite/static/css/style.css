@@ -17,6 +17,10 @@
 .row-form textarea, .row-form input {
     width: 100%;
 }
+.login-form input, .login-form textarea {
+    padding: 5px;
+    border-spacing: 20px;
+}
 
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
