@@ -1,11 +1,11 @@
 '''
-
+Plik do zczytania danych z bazy csv
 
 '''
 
 
 def data():
-    F = open('exel.csv','r',encoding="utf8", )
+    F = open('export.csv','r',encoding="utf8", )
     lista = []
     for line in F.readlines():
         parts1=line.strip()

@@ -27,6 +27,8 @@ from django.urls import reverse
 
 
 class Row(models.Model):
+
+    customer=models.CharField(max_length=200, blank=True)
     STATUS_CHOICES = (('dodany', 'Dodany'), ('realizowany', 'Realizowany'), ('zakończony', 'Zakończony'),)
     state = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Dodany', )
     entry_date = models.DateTimeField(default=timezone.now)
@@ -45,6 +47,7 @@ class Row(models.Model):
     doer = models.CharField(max_length=30, blank=True)  # wykonawca
     comments = models.TextField(blank=True)
     coutry = models.CharField(max_length=30, blank=True)
+    link=models.CharField(max_length=200, blank=True)
 
     class Meta:
         ordering = ('-entry_date',)
