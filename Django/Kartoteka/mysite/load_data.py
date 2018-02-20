@@ -6,58 +6,41 @@ from django.utils import timezone
 
 Exportuje dane do bazy danych:
 
-    STATUS_CHOICES = (('dodany', 'Dodany'), ('realizowany', 'Realizowany'), ('zakończony', 'Zakończony'),)
-    state = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Dodany', )
-    entry_date = models.DateTimeField(default=timezone.now)
-    num = models.IntegerField(blank=True,null=True)
-    entry_code = models.CharField(max_length=30, blank=True)
-    author = models.ForeignKey(User, related_name='entries', blank=True, on_delete=models.CASCADE)
-    last_modified = models.DateTimeField(auto_now=True)
-    investor = models.CharField(max_length=30, blank=True)
-    contract_number = models.CharField(max_length=30, blank=True)
-    zip_code = models.CharField(max_length=30, blank=True)
-    manager = models.CharField(max_length=30, blank=True)
-    invoice = models.CharField(max_length=200, blank=True)
-    design = models.CharField(max_length=200, blank=True)
-    rcd_date = models.DateField(blank=True, null=True)
-    implementation_date = models.DateField(blank=True, null=True)
-    doer = models.CharField(max_length=30, blank=True)  # wykonawca
-    comments = models.TextField(blank=True)
-    coutry = models.CharField(max_length=30, blank=True)
-
-
 Polecenia w shell:
 
-from import_data import data
-from load_data import base
-lista=data()
-base(lista)
+    from import_data import data
+    from load_data import base
+    lista=data()
+    base(lista)
 
 
 lista= []
-0	LP
-1   ZLECENIODAWCA
-2	ROK
-3	MIESIAC(NAZWA)
-4	MIESIAC(LICZBA)
-5   SUFIX
-6   NR W MIESIACU
-7	Inwestor
-8    LINK
-9	Nr. Umowy
-10	UWAGI
-11	Status
-12	Kierownik
-13	FV
-14	PROJEKTANT
-15	Data różnicówki
-16	Data montażu
-17	Instalacje wykona
-18  KRAJ
-19	AFD
+    0	LP
+    1   ZLECENIODAWCA
+    2	ROK
+    3	MIESIAC(NAZWA)
+    4	MIESIAC(LICZBA)
+    5   SUFIX
+    6   NR W MIESIACU
+    7	Inwestor
+    8    LINK
+    9	Nr. Umowy
+    10	UWAGI
+    11	Status
+    12	Kierownik
+    13	FV
+    14	PROJEKTANT
+    15	Data różnicówki
+    16	Data montażu
+    17	Instalacje wykona
+    18  KRAJ
+    19	AFD
 
 
 ex: 2011-09-01T13:20:30
+
+Nalezy przygotowac plik exel tak aby moożliwe był export do bazy danych. Po odpowiednim przygotowaniu pliku
+nalezy uruchomic testy które trzeba bedzie jescze dodac :)))
 
 '''
 
