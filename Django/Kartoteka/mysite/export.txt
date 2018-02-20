@@ -1,5 +1,4 @@
-0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19
-1;UNIBUD;2005;STYCZEŃ;1;2005-1_1;1;Ruzicka;\\projektant4\E\UNIBUD 2005\01 Styczeń\z 01 Ruzicka 1154;1154;, , , ;;;;;;;;;
+﻿1;UNIBUD;2005;STYCZEŃ;1;2005-1_1;1;Ruzicka;\\projektant4\E\UNIBUD 2005\01 Styczeń\z 01 Ruzicka 1154;1154;, , , ;;;;;;;;;
 2;UNIBUD;2005;STYCZEŃ;1;2005-1_2;2;Jordan-Krohne;\\projektant4\E\UNIBUD 2005\01 Styczeń\z 02 Jordan-Krohne 1093;1093;, , , ;;;;;;;;;
 3;UNIBUD;2005;STYCZEŃ;1;2005-1_3;3;Jurcic;\\projektant4\E\UNIBUD 2005\01 Styczeń\z 03 Jurcic 1161;1161;, , , ;;;;;;;;;
 4;UNIBUD;2005;STYCZEŃ;1;2005-1_4;4;Koch Gross;\\projektant4\E\UNIBUD 2005\01 Styczeń\z 04 Koch Gross 1085;1085;, , , ;;;;;;;;;

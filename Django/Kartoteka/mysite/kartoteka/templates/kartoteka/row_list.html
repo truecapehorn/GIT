@@ -11,6 +11,7 @@
 			<!-- Modele -->
 			<tr>
 				<th>Lp:</th>
+				<th>Klient:</th>
 				<th>Inwestor:</th>
 				<th>Numer umowy:</th>
 				<th>Kod:</th>
@@ -21,6 +22,8 @@
 				<th>Uwagi:</th>
 				<th>Kraj:</th>
 				<th>Dodany:</th>
+				<th>Link:</th>
+
 			</tr>
 		</thead>
 		<tfoot>
@@ -31,6 +34,7 @@
 			{% for data in row_list %}
 			<tr>
 				<td>{{ data.entry_code }}</td>
+				<td>{{ data.customer }}</td>
 				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.investor }}</a></td>
 				<td>{{ data.contract_number }}</td>
 				<td>{{ data.zip_code }}</td>
@@ -41,6 +45,12 @@
 				<td>{{ data.comments }}</td>
 				<td>{{ data.coutry }}</td>
 				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.entry_date }}</a></td>
+				<td>
+					<a href="file:///C:\etcs">Link</a>
+				</td>
+
+				<!--td><a class="btn btn-default" href="file:///C|\etcs\link.txt"><span class="glyphicon glyphicon-folder-open"></span></a></td-->
+
 			</tr>
 			{% endfor %}
 		</tbody>

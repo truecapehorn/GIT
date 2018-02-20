@@ -48,6 +48,7 @@ class Row(models.Model):
     comments = models.TextField(blank=True)
     coutry = models.CharField(max_length=30, blank=True)
     link=models.CharField(max_length=200, blank=True)
+    afd=models.CharField(max_length=200, blank=True)
 
     class Meta:
         ordering = ('-entry_date',)

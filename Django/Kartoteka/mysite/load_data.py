@@ -36,22 +36,26 @@ base(lista)
 
 lista= []
 0	LP
-1	SUFIX
-2	DZIEN
-3	MIESIAC
-4	ROK
-5	Inwestor
-6	Nr. Umowy
-7	Kod
-8	Status
-9	Kierownik
-10	FV
-11	elektro
-12	Data różnicówki
-13	Data montażu
-14	Instalacje wykona
-15	uwagi
-16	Kraj
+1   ZLECENIODAWCA
+2	ROK
+3	MIESIAC(NAZWA)
+4	MIESIAC(LICZBA)
+5   SUFIX
+6   NR W MIESIACU
+7	Inwestor
+8    LINK
+9	Nr. Umowy
+10	UWAGI
+11	Status
+12	Kierownik
+13	FV
+14	PROJEKTANT
+15	Data różnicówki
+16	Data montażu
+17	Instalacje wykona
+18  KRAJ
+19	AFD
+
 
 ex: 2011-09-01T13:20:30
 
@@ -62,7 +66,9 @@ def base(lista):
     User.objects.all()
     me = User.objects.get(username='admin')
     for i in lista:
-        dataDodania = '{0}-{1}-{2}T13:20:30'.format(int(i[4]), int(i[3]), int(i[2]))
-        Row.objects.create(entry_date=dataDodania, author=me, investor=i[5], contract_number=i[6], zip_code=i[7],
-                           manager=i[9], invoice=i[10], design=i[11], comments=i[15], coutry=i[16], num=int(i[0]),
-                           entry_code=i[1])
+        dataDodania = '{0}-{1}-{2}T13:20:30'.format(int(i[2]), int(i[4]), 1)
+
+        Row.objects.create(entry_date=dataDodania, author=me, investor=i[7],
+                           contract_number=i[9],manager=i[12], invoice=i[13],
+                           design=i[14], comments=i[10], coutry=i[18],
+                           num=int(i[0]),entry_code=i[5],customer=i[1],link=i[8],afd=i[19])

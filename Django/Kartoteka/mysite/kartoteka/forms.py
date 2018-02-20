@@ -6,21 +6,23 @@ class RowForm(forms.ModelForm):
 
     class Meta:
         model = Row
-        fields = ('state',
-                  'investor',
-                  'contract_number',
-                  'zip_code',
-                  'manager',
-                  'invoice',
-                  'design',
-                  'rcd_date',
-                  'implementation_date',
-                  'doer',
-                  'comments',
-                  'coutry',
+        fields = (
+            'link',
+            'customer',
+            'state',
+            'investor',
+            'contract_number',
+            'zip_code',
+            'manager',
+            'invoice',
+            'design',
+            'rcd_date',
+            'implementation_date',
+            'doer',
+            'comments',
+            'coutry',
 
-
-                  )
+            )
 
 
 class SearchForm(forms.Form):
