@@ -5,6 +5,7 @@ from .forms import RowForm, SearchForm
 from django.utils import timezone
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
+import subprocess
 
 
 # TODO: Dodac widoki: detail reckord
@@ -38,6 +39,7 @@ class SortView(ListView):  # dodac atrybut co sortujemy
 
 def row_detail(request, pk):
     row = get_object_or_404(Row, pk=pk)
+    open_folder()
     return render(request, 'kartoteka/row_detail.html', {'row': row})
 
 
@@ -117,3 +119,9 @@ def row_search(request):
         return render(request,
                       'kartoteka/search.html',
                       {'form': form},)
+
+def open_folder():
+    import subprocess
+    print("funkcja wykonana")
+    path1=r'C:\Users\User\Documents\Manuale'
+    subprocess.Popen(r'explorer /select,{}'.format(path1))

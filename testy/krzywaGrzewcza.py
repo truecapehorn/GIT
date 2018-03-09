@@ -2,8 +2,8 @@ import math
 import matplotlib.pyplot as plt
 
 tzew = []
-x = 17
-while x > -30:
+x = 20
+while x > -50:
     tzew.append(x)
     x -= 0.5
 print(tzew)
@@ -44,7 +44,7 @@ def func(x):
             czas6 = czas
             wykl6 = wykl
 
-    return jest1, jest2, jest3,fun#czas1, czas2, czas3, czas4,# wykl1, wykl2, wykl3, wykl4,
+    return jest3, jest2, jest1,#fun#czas1, czas2, czas3, czas4,# wykl1, wykl2, wykl3, wykl4,
 
 
 czas2 = list(map(func, tzew))

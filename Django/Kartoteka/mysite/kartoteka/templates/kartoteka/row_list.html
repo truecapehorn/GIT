@@ -46,7 +46,7 @@
 				<td>{{ data.coutry }}</td>
 				<td><a href="{% url 'row_detail' pk=data.pk %}" class="link">{{ data.entry_date }}</a></td>
 				<td>
-					<a href="file:///C:\etcs">Link</a>
+					<a href="{% url 'open_folder' %}"> Link </a>
 				</td>
 
 				<!--td><a class="btn btn-default" href="file:///C|\etcs\link.txt"><span class="glyphicon glyphicon-folder-open"></span></a></td-->

@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^row/(?P<pk>[0-9]+)/delete/$', views.row_delete, name='row_delete'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
+    url('', views.open_folder, name='open_folder'),
     #url(r'^register/$',register_page),
 ]
