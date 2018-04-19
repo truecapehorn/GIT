@@ -29,12 +29,12 @@ def func(x):
         if x==20:
             print('f(x)=({0})x**2 + ({1})x + ({2})\nWierzcholek: ({3},{4})'.format(a, b, c, p, q))
 
-        return fun,
+        return fun*0.1,
 
 Tco = list(map(func, tzew))
 plt.plot(tzew, Tco)
-plt.xlabel("Tzew. ")
-plt.ylabel("Tco")
+plt.xlabel("Tzew x 0,1 [stC]")
+plt.ylabel("Tco [stC]")
 plt.title("Krzywa grzewcza")
 plt.grid()
 plt.show()
