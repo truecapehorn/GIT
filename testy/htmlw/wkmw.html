@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8/">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<script lang="javascript">
+		var requestInProgress = !1,
+			processNextRequestDelay = 300,
+			requestTimeout = 15e3,
+			requestQueue = [];
+		window.loginToken = "none";
+		var makeHttpRequest = function(e, t) {
+				t || (requestInProgress = !0), e.request.open(e.method, e.url, !0), e.request.timeout = requestTimeout, "POST" == e.method && e.request.setRequestHeader("Content-type", "application/json"), void 0 != typeof window.loginToken && "none" != window.loginToken &&
+					e.request.setRequestHeader("Authorization", "blebox " + window.loginToken);
+				try {
+					e.request.send(e.payload)
+				} catch (s) {
+					console.log(s)
+				}
+			},
+			makeFileRequest = function(e) {
+				if (isFileAlreadyJoined(e)) return "function" == typeof e.callback && e.callback(), void processRequestQueue();
+				requestInProgress = !0;
+				var t;
+				"js" == e.filetype ? (t = document.createElement("script"), t.setAttribute("type", "text/javascript"), fileRequestReadyStateListener(t, e), t.setAttribute("src", e.filename)) : "css" == e.filetype && (t = document.createElement("link"), t.setAttribute(
+					"rel", "stylesheet"), t.setAttribute("type", "text/css"), fileRequestReadyStateListener(t, e), t.setAttribute("href", e.filename)), "undefined" != typeof t && (t.setAttribute("lazy-file", e.filename), document.getElementsByTagName("head")[0].appendChild(
+					t))
+			},
+			isFileAlreadyJoined = function(e) {
+				var t = document.querySelectorAll("[lazy-file]");
+				if (t && t.length)
+					for (var s = 0; s < t.length; s++) {
+						var o = t[s].getAttribute("lazy-file");
+						if (o == e.filename) return !0
+					}
+				return !1
+			},
+			fileRequestReadyStateListener = function(e, t) {
+				e && (e.readyState ? e.onreadystatechange = function() {
+					"loaded" != e.readyState && "complete" != e.readyState || (e.onreadystatechange = null, requestInProgress = !1, "function" == typeof t.callback && t.callback(), processRequestQueue())
+				} : (e.onload = function() {
+					requestInProgress = !1, "function" == typeof t.callback && t.callback(), processRequestQueue()
+				}, e.onerror = e.onload))
+			},
+			processRequestTimeout, processRequestQueue = function() {
+				requestQueue.length > 0 && (processRequestTimeout = setTimeout(function(e) {
+					"file" == e.type ? makeFileRequest(e) : (e.type = "http") ? makeHttpRequest(e) : console.log("Request with not supported type: " + e.type)
+				}.bind(this, requestQueue.shift()), processNextRequestDelay))
+			},
+			loadjscssfile = function(e, t, s) {
+				var o = {
+					type: "file",
+					filename: e,
+					filetype: t,
+					callback: s
+				};
+				requestInProgress ? requestQueue.push(o) : makeFileRequest(o)
+			};
+		"undefined" == typeof scaleApp && (loadjscssfile("pure-min.css?v=1495805115640", "css"), loadjscssfile("pure-responsive-min.css?v=1495805115640", "css"), loadjscssfile("iconmoon.css?v=1495805115640", "css"), loadjscssfile(
+				"main.css?v=1495805115640", "css"), loadjscssfile("common.js?v=1495805115640", "js"), loadjscssfile("scaleApp.js?v=1495805115640", "js"), loadjscssfile("scaleApp-i18n.js?v=1495805115640", "js"), loadjscssfile("rLite.js?v=1495805115640", "js"),
+			loadjscssfile("index.js?v=1495805115640", "js"))
+	</script>
+	<link rel="manifest" href="manifest.json?v=1495805115640">
+	<link rel="apple-touch-icon" href="icon192.png?v=1495805115640">
+</head>
+
+<body>
+	<div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed"><a class="pure-menu-heading" href="#/">switch<span class="ble-color"><b>box</b></span>d</a>
+		<ul class="pure-menu-list">
+			<li i18n-translate class="pure-menu-item" style="display: none"><a href="#/settings" class="pure-menu-link">{{i18n_mainbox_settings}}</a></li>
+			<li i18n-translate class="pure-menu-item" style="display: none"><a id="logout-link" href="#/logout" class="pure-menu-link gatebox" style="display: none">{{i18n_mainbox_logout}}</a></li>
+		</ul>
+	</div>
+	<div id="page-mask-message" class="page-loader" style="display: none">
+		<div class="clear-loading"><span id="page-mask-message-text" class="text-white"></span></div>
+	</div>
+	<div id="page-loader-mask" class="page-loader">
+		<div class="clear-loading">
+			<div class="loading-spinner"><span></span></div>
+			<div class="m-t-10"><span id="page-loader-mask-text" class="text-white"></span></div>
+		</div>
+	</div>
+	<div id="scroll-anchor"></div>
+	<div id="main-view"></div>
+	<div id="not-responding-modal" class="modal" style="display: none" i18n-translate>
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h3>&raquo; {{i18n_mainbox_message}}</h3></div>
+			<div class="modal-body">
+				<div class="pure-u-1"><label>{{i18n_mainbox_deviceIsNotRespondingMsg}}</label></div>
+			</div>
+			<div class="modal-footer"><button id="close-modal" class="pure-button btn-grey push-right">{{i18n_mainbox_close}}</button> <button id="refresh-page-btn" class="pure-button push-right">{{i18n_mainbox_refresh}}</button></div>
+		</div>
+	</div>
+	<div id="log-in-modal" class="modal" style="display: none" i18n-translate>
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h3>&raquo; {{i18n_mainbox_logIn}}</h3></div>
+			<div class="modal-body">
+				<div class="pure-form pure-form-aligned">
+					<div class="pure-control-group"><label for="login-username">{{i18n_mainbox_login}}</label><input id="login-username" class="pure-u-1" autocorrect="off" autocapitalize="none"></div>
+					<div class="pure-control-group"><label for="login-password">{{i18n_mainbox_loginPassword}}</label><input id="login-password" class="pure-u-1" type="password" autocorrect="off" autocapitalize="none"></div>
+					<div class="pure-control-group"><label class="label--checkbox" i18n-translate><input id="login-show-passwd" type="checkbox" class="checkbox"> {{i18n_mainbox_showPassword}}</label></div>
+				</div>
+			</div>
+			<div class="modal-footer"><button id="log-in-btn" class="pure-button push-right">{{i18n_mainbox_logIn}}</button></div>
+		</div>
+	</div>
+</body>
+
+</html>
