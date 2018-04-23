@@ -1,10 +1,7 @@
 from envelopes import Envelope, GMailSMTP
 import glob
 
-pliki=glob.glob("/home/tito/Pulpit/*.pdf")
-
-for i in pliki:
-    print(i)
+pliki=glob.iglob("/home/tito/Pulpit/**/*.pdf", recursive=True)
 
 
 
@@ -12,13 +9,13 @@ addr=['tito02@o2.pl', 'jablonski.norbert@gmail.com']
 
 
 for atachment in pliki:
-    email= u" To jest wiadomosc z następujacym załącznikiem {} dla twojej wiadomosci ".format(str(atachment))
+    email= u" To jest wiadomosc z następujacym załącznikiem {}".format(str(atachment))
     for i in range(len(addr)):
         print('Wysłanie wiadomosci do {} z {}'.format(addr[i],atachment))
         envelope = Envelope(
-            from_addr=( u'PYTHON CODE'),
+            from_addr=( u'PYTHON CODE v2 '),
             to_addr=(addr[i]),
-            subject=u'Wiadomosc {} dla {}'.format(i,addr[i]),
+            subject=u'Wiadomosc {} dla {}'.format(i+1,addr[i]),
             text_body=email
         )
         envelope.add_attachment(str(atachment))
