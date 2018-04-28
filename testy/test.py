@@ -8,7 +8,7 @@ print (now.year, now.month, now.day, now.hour, now.minute, now.second)
 while True:
     now = datetime.datetime.now()
     print(now.minute, now.second)
-    if now.minute==59:
+    if now.minute==59 or now.second==58:
         print('dobra godzina')
         break
 
