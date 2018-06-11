@@ -91,6 +91,7 @@ def getCurValue():
     # response_status(action, r)
     return r.json()
 
+
 def getLocTime():
     '''Zczytanie daty'''
     action = 'API - odczyt daty unix time'
@@ -103,6 +104,7 @@ def getLocTime():
 
     # response_status(action, r)
     return r.json()
+
 
 def getRegLog():
     '''Zczytanie wartosci logow'''
@@ -118,36 +120,32 @@ def getRegLog():
     return r.json()
 
 
-
 a = 1
 dict1 = registerList()
-l=[]
+l = []
 
 while True:
     dict2 = getCurValue()
     print('pomiar ', a)
-    #print(getLocTime()['timestamp'])
-    timestamp=getLocTime()['timestamp']
+    # print(getLocTime()['timestamp'])
+    timestamp = getLocTime()['timestamp']
     for i in range(len(dict1)):
         ids = dict1[i]['id']
-        #print(dict1[i]['title'], dict2[str(ids)]['v'])
+        # print(dict1[i]['title'], dict2[str(ids)]['v'])
         l.append(int(dict2[str(ids)]['v']))
 
     log = open('log.txt', 'a')
-    print(int(timestamp),',',l, file=log)
+    print(int(timestamp), ',', l, file=log)
     log.close()
-    l=[]
+    l = []
 
     time.sleep(0)
     a += 1
     break
-#print(getRegLog())
+# print(getRegLog())
 
 for i in getRegLog():
-    if i['r']==2:
+    if i['r'] == 2:
         logi = open('logi.txt', 'a')
         print(i['r'], ',', i['t'], ',', i['v'], file=logi)
         logi.close()
-
-
-
