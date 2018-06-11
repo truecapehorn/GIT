@@ -19,7 +19,7 @@ class Device():
         return r.json()
 
     def displayTest(self):
-        return self.device_adress + self.api_adress,self.headres
+        return self.device_adress + self.api_adress, self.headres
 
     def connectionList(self):
         '''Zczytanie listy połaczen webHMI'''
@@ -105,5 +105,3 @@ print(webHMI.displayTest())
 
 webHMI.api(webHMI.getCurValue())
 print(webHMI.displayTest())
-
-
