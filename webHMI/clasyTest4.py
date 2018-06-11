@@ -63,10 +63,10 @@ class Device():
         header = {}
         return api_adress, header
 
-    def getCurValue(self):
+    def getCurValue(self, conns):
         '''Zczytanie wartosci z rejestru'''
         api_adress = '/api/register-values'
-        header = {'X-WH-CONNS': '1,2'}
+        header = {'X-WH-CONNS': conns}
         return api_adress, header
 
     def getLocTime(self):
@@ -91,7 +91,7 @@ webHMI2 = Device(device_adress2, apikey2)
 
 regLog = webHMI1.getRegLog('123', '456', '1,2,3,4,5,6')
 print(webHMI1.displayTest(regLog))
-curVal = webHMI1.getCurValue()
+curVal = webHMI1.getCurValue('1,2,3,4')
 print(webHMI1.displayTest(curVal))
 regLog = webHMI1.getRegLog('333', '444', '1,2,3,4,5,6,7,8,9,10')
 print(webHMI1.displayTest(regLog))
