@@ -3,11 +3,17 @@ import os, platform
 
 
 class Api():
-    '''Klasa dodajaca urzadzenie webHMI'''
+    '''
+Klasa dodajaca urzadzenie webHMI
+device_address - host address
+apikey - api key
+timeout - request time
+    '''
 
-    def __init__(self, device_address, apikey):
+    def __init__(self, device_address, apikey,timeout):
         self.device_address = device_address
         self.apikey = apikey
+        self.timeout=timeout
 
     def make_headers(self, update):
         '''Dodanie nagłowka do requesta'''
@@ -25,8 +31,8 @@ class Api():
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        try:
-            r = requests.get(url, headers=header, timeout=3)
+        try: # jesli nie wystapi time out
+            r = requests.get(url, headers=header, timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
             print(" Wystapil timeout")
@@ -38,8 +44,8 @@ class Api():
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        try:
-            r = requests.put(url, headers=header, data={'value': address[2]}, timeout=3)
+        try: # jesli nie wystapi time out
+            r = requests.put(url, headers=header, data={'value': address[2]}, timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
             print(" Wystapil timeout")
@@ -123,7 +129,10 @@ class Api():
         return r
 
     def changeRegVal(self, ids, val):
-        '''Zczytanie daty w formacie unix'''
+        '''Zmiana wartosci rejstru
+        ids: nr. rejestru
+        val: nowa wartosc
+        '''
         api_address = '/api/register-values/{0}'.format(ids)
         header = {}
         address = (api_address, header, val)
@@ -134,7 +143,10 @@ class Api():
 if __name__ == '__main__':
     device_address1 = 'http://192.168.0.229'
     apikey1 = '72D4E648B82D17655636E19085FB3CFE9554BFCF'
+    webHMI=Api(device_address1,apikey1,1)
+    print(Api.__doc__)
 
-    webHMI = Api(device_address1, apikey1)
-    locTime = webHMI.connectionList()
-    print(locTime)
+    conlist = webHMI.connectionList()
+    print(conlist)
+    loctime=webHMI.getLocTime()
+    print(loctime)
