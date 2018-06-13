@@ -10,10 +10,10 @@ apikey - api key
 timeout - request time
     '''
 
-    def __init__(self, device_address, apikey,timeout):
+    def __init__(self, device_address, apikey, timeout):
         self.device_address = device_address
         self.apikey = apikey
-        self.timeout=timeout
+        self.timeout = timeout
 
     def make_headers(self, update):
         '''Dodanie nagłowka do requesta'''
@@ -31,7 +31,7 @@ timeout - request time
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        try: # jesli nie wystapi time out
+        try:  # jesli nie wystapi time out
             r = requests.get(url, headers=header, timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
@@ -44,7 +44,7 @@ timeout - request time
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        try: # jesli nie wystapi time out
+        try:  # jesli nie wystapi time out
             r = requests.put(url, headers=header, data={'value': address[2]}, timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
@@ -143,10 +143,10 @@ timeout - request time
 if __name__ == '__main__':
     device_address1 = 'http://192.168.0.229'
     apikey1 = '72D4E648B82D17655636E19085FB3CFE9554BFCF'
-    webHMI=Api(device_address1,apikey1,1)
+    webHMI = Api(device_address1, apikey1, 1)
     print(Api.__doc__)
 
     conlist = webHMI.connectionList()
     print(conlist)
-    loctime=webHMI.getLocTime()
+    loctime = webHMI.getLocTime()
     print(loctime)
