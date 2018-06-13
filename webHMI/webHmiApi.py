@@ -19,29 +19,32 @@ class Api():
                         }
         base_headers.update(update)  # dodanie reszty potrzebnych naglowkow
         return base_headers
-    def make_request(self,address):
-        if self.pingTest()==0:
-            r = self.reqGet(address)
-        else:
-            print('Dev not response !!')
-            r = self.displayTest(address)
-        return r
 
     def reqGet(self, address):
         '''Request o potrzebne dane'''
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        r = requests.get(url, headers=header)
-        return r.json()
+        try:
+            r = requests.get(url, headers=header, timeout=3)
+            return r.json()
+        except requests.exceptions.ConnectTimeout:
+            print(" Wystapil timeout")
+            r = self.displayTest(address)
+            return r
 
     def reqPut(self, address):
         '''Request o zmiane wartosci'''
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        r = requests.put(url, headers=header, data={'value': address[2]})
-        return r.json()
+        try:
+            r = requests.put(url, headers=header, data={'value': address[2]}, timeout=3)
+            return r.json()
+        except requests.exceptions.ConnectTimeout:
+            print(" Wystapil timeout")
+            r = self.displayTest(address)
+            return r
 
     def displayTest(self, address):
         '''Test zapytania'''
@@ -65,7 +68,7 @@ class Api():
         api_address = '/api/connections'
         header = {}
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def registerList(self):
@@ -73,7 +76,7 @@ class Api():
         api_address = '/api/registers'
         header = {}
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def trendList(self):
@@ -81,7 +84,7 @@ class Api():
         api_address = '/api/trends'
         header = {}
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def graphList(self):
@@ -89,7 +92,7 @@ class Api():
         api_address = '/api/graphs'
         header = {}
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def getCurValue(self, conns):
@@ -97,7 +100,7 @@ class Api():
         api_address = '/api/register-values'
         header = {'X-WH-CONNS': conns}
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def getLocTime(self):
@@ -105,7 +108,7 @@ class Api():
         api_address = '/api/timeinfo'
         header = {}
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def getRegLog(self, start, stop, ids):
@@ -116,7 +119,7 @@ class Api():
                   'X-WH-REG-IDS': ids,
                   }
         address = (api_address, header)
-        r=self.make_request(address)
+        r = self.reqGet(address)
         return r
 
     def changeRegVal(self, ids, val):
@@ -124,7 +127,7 @@ class Api():
         api_address = '/api/register-values/{0}'.format(ids)
         header = {}
         address = (api_address, header, val)
-        r=self.make_request(address)
+        r = self.reqPut(address)
         return r
 
 
