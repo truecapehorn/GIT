@@ -1,17 +1,11 @@
 import requests
 
-device_adress1 = 'http://192.168.0.229'
-apikey1 = '72D4E648B82D17655636E19085FB3CFE9554BFCF'
-
-device_adress2 = 'http://192.168.0.22'
-apikey2 = '833FFE648B82D17655636E19085FB3CFE9554BFCF'
-
 
 class Api():
     '''Klasa dodajaca urzadzenie webHMI'''
 
-    def __init__(self, device_adress, apikey):
-        self.device_adress = device_adress
+    def __init__(self, device_address, apikey):
+        self.device_address = device_address
         self.apikey = apikey
 
     def make_headers(self, update):
@@ -22,85 +16,87 @@ class Api():
                         'Content-Type': 'application/json',
                         "Accept - Encoding": "gzip, deflate, sdch",
                         }
-        base_headers.update(update)  # dodanie potrzebnych naglowkow
+        base_headers.update(update)  # dodanie reszty potrzebnych naglowkow
         return base_headers
 
-    def displayReaquest(self, adress):
+    def displayReaquest(self, address):
         '''Request o potrzebne dane'''
-        header = self.make_headers(adress[1])  # dodanie potrzebnych naglowków
-        api_adress = adress[0]
-        url = self.device_adress + api_adress
+        header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
+        api_address = address[0]
+        url = self.device_address + api_address
         r = requests.get(url, headers=header)
         return r.json()
 
-    def displayTest(self, adress):
+    def displayTest(self, address):
         '''Test zapytania'''
-        header = self.make_headers(adress[1])
-        api_adress = adress[0]
-        return self.device_adress + api_adress, header
+        header = self.make_headers(address[1])
+        api_address = address[0]
+        return self.device_address + api_address, header
 
     def connectionList(self):
         '''Zczytanie listy połaczen webHMI'''
-        api_adress = '/api/connections'
+        api_address = '/api/connections'
         header = {}
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
     def registerList(self):
         '''Zczytanie listy rejestrow webHMI'''
-        api_adress = '/api/registers'
+        api_address = '/api/registers'
         header = {}
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
     def trendList(self):
         '''Zczytanie listy trendow webHMI'''
-        api_adress = '/api/trends'
+        api_address = '/api/trends'
         header = {}
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
     def graphList(self):
         '''Zczytanie listy grafow webHMI'''
-        api_adress = '/api/graphs'
+        api_address = '/api/graphs'
         header = {}
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
     def getCurValue(self, conns):
         '''Zczytanie wartosci z rejestru'''
-        api_adress = '/api/register-values'
+        api_address = '/api/register-values'
         header = {'X-WH-CONNS': conns}
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
     def getLocTime(self):
         '''Zczytanie daty w formacie unix'''
-        api_adress = '/api/timeinfo'
+        api_address = '/api/timeinfo'
         header = {}
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
     def getRegLog(self, start, stop, ids):
         '''Zczytanie wartosci logow'''
-        api_adress = '/api/register-log'
+        api_address = '/api/register-log'
         header = {'X-WH-START': start,
                   'X-WH-END': stop,
                   'X-WH-REG-IDS': ids,
                   }
-        adress=(api_adress,header)
-        r=self.displayTest(adress)
+        address = (api_address, header)
+        r = self.displayTest(address)
         return r
 
 
 if __name__ == '__main__':
-    webHMI=Api(device_adress1,apikey1)
-    locTime=webHMI.getLocTime()
-    print(locTime)
+    device_address1 = 'http://192.168.0.229'
+    apikey1 = '72D4E648B82D17655636E19085FB3CFE9554BFCF'
 
+    webHMI = Api(device_address1, apikey1)
+    locTime = webHMI.getLocTime()
+    print(locTime)
