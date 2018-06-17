@@ -1,4 +1,5 @@
 import requests
+import simplejson as json
 import os, platform
 
 
@@ -44,8 +45,9 @@ timeout - request time
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
+        data=json.dumps({'value': address[2]})
         try:  # jesli nie wystapi time out
-            r = requests.put(url, headers=header, data={'value': address[2]}, timeout=self.timeout)
+            r = requests.put(url, headers=header, data=data, timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
             print(" Wystapil timeout")
