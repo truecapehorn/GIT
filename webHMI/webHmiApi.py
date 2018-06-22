@@ -45,9 +45,9 @@ timeout - request time
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        data=json.dumps({'value': address[2]})
+        payload={'value': address[2]}
         try:  # jesli nie wystapi time out
-            r = requests.put(url, headers=header, data=data, timeout=self.timeout)
+            r = requests.put(url, headers=header, data=json.dumps(payload), timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
             print(" Wystapil timeout")
@@ -134,6 +134,7 @@ timeout - request time
         '''Zmiana wartosci rejstru
         ids: nr. rejestru
         val: nowa wartosc
+        Jezli akcja sie powiedzie api zwroci wartosc http 200
         '''
         api_address = '/api/register-values/{0}'.format(ids)
         header = {}
