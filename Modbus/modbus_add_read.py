@@ -4,6 +4,7 @@
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import time
 import sys
+from sys import platform
 
 arg_1 = int(sys.argv[1])  # adres modbus start
 arg_2 = int(sys.argv[2])  # adres modbus stop
@@ -14,17 +15,24 @@ arg_5 = int(sys.argv[5])  # ilosc rejestrow
 
 def adresCheck(unit_start=arg_1, unit_stop=arg_2, speed=arg_3, add_start=arg_4 - 1, len=arg_5):
     unit_range = (unit_start, unit_stop)
-    print('Sprawdzenie adresow z zakresu {}, dla predkosci {}, Rejestry od {} do {} \n'.format(unit_range,
-                                                                                               speed,
-                                                                                               add_start+1,
-                                                                                               add_start + len))
+    if platform == "linux" or platform == "linux2":
+        port = '/dev/ttyUSB0'
+    elif platform == "darwin":
+        port = '/dev/ttyUSB0'
+    elif platform == "win32":
+        port = 'com3'
+    print('Sprawdzenie adresow z zakresu: {}, dla predkosci: {}, Rejestry od: {} do: {}, Port: {} \n'.format(unit_range,
+                                                                                                             speed,
+                                                                                                             add_start + 1,
+                                                                                                             add_start + len,
+                                                                                                             port))
 
     count = 0
     client = True
     try:
         while client:
 
-            client = ModbusClient(method='rtu', port='/dev/ttyUSB0', baudrate=speed, stopbits=1, parity='N', bytesize=8,
+            client = ModbusClient(method='rtu', port=port, baudrate=speed, stopbits=1, parity='N', bytesize=8,
                                   timeout=3)
 
             try:
