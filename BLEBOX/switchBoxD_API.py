@@ -260,7 +260,7 @@ def wifi_status(device_adress):
         RX:
         "scanning": Is scanning for WiFi networks in progress.,
         "ssid": Name of connected WiFi network.,
-        "station_status": Status of current conection with WiFi network. Where:
+        "station_status": Status   of current conection with WiFi network. Where:
                         0 - Not configured, 1 - Connecting,
                         2 - Wrong password, 3 - WiFi network not found,
                         4 - Error, 5 - Connected.,
