@@ -44,9 +44,8 @@ timeout - request time
         header = self.make_headers(address[1])  # dodanie potrzebnych naglowków
         api_address = address[0]
         url = self.device_address + api_address
-        print(url,header,{'value':'{}'.format(address[2])})
         try:  # jesli nie wystapi time out
-            r = requests.put(url, headers=header, data={'value':'{}'.format(address[2])}, timeout=self.timeout)
+            r = requests.put(url, headers=header, data={'value': address[2]}, timeout=self.timeout)
             return r.json()
         except requests.exceptions.ConnectTimeout:
             print(" Wystapil timeout")
@@ -142,8 +141,8 @@ timeout - request time
 
 
 if __name__ == '__main__':
-    device_address1 = 'http://192.168.0.226'
-    apikey1 = '1D0DC2F189E5D96EB16AAD59A9A9C2C3C6FE3C0F'
+    device_address1 = 'http://192.168.0.229'
+    apikey1 = '72D4E648B82D17655636E19085FB3CFE9554BFCF'
     webHMI = Api(device_address1, apikey1, 1)
     print(Api.__doc__)
 
@@ -151,5 +150,3 @@ if __name__ == '__main__':
     print(conlist)
     loctime = webHMI.getLocTime()
     print(loctime)
-    changreg = webHMI.changeRegVal('90', 3)
-    print(changreg)
