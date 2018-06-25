@@ -33,7 +33,7 @@ def adresCheck(unit_start=arg_1, unit_stop=arg_2, speed=arg_3, add_start=arg_4 -
     while client:
 
         print('Polaczenie: ', count)
-        for i in range(unit_range[0],unit_range[1]):
+        for i in range(unit_range[0],unit_range[1]+1):
             try:
                 unit = i
                 client = ModbusClient(method='rtu', port=port, baudrate=speed, stopbits=1, parity='N', bytesize=8,
@@ -42,11 +42,13 @@ def adresCheck(unit_start=arg_1, unit_stop=arg_2, speed=arg_3, add_start=arg_4 -
                 massure = client.read_holding_registers(add_start, len, unit=i)
                 print("Wartosci dla adresu {} : {}".format(i, massure.registers[0:]))
                 client.close()
+                time.sleep(1)
             except AttributeError:
                 add_error.append(unit)
                 print('Błąd połaczenia z adresem: {} {}'.format(unit,add_error))
                 client.close()
-                #break
+                time.sleep(1)
+                continue
 
         time.sleep(1)
         count += 1

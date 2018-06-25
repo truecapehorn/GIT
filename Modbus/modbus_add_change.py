@@ -12,7 +12,7 @@ arg_2 = int(sys.argv[2])  # adres modbus nowy
 
 def add_change(unitOld = arg_1, unitNew=arg_2):
     try:
-        client = ModbusClient(method='rtu', port='com5', baudrate=2400, stopbits=1, parity='N', bytesize=8, timeout=3)
+        client = ModbusClient(method='rtu', port='/dev/ttyUSB0', baudrate=2400, stopbits=1, parity='N', bytesize=8, timeout=3)
         connection = client.connect()
         print(connection)
 
@@ -22,27 +22,27 @@ def add_change(unitOld = arg_1, unitNew=arg_2):
         else:
             predkosc = 'Nie 2400'
         print('Adres urzadzenia {},\nPredkosc jest ustawiona na {},'.format(rr.registers[0], predkosc))
-        for i in range(1, 5):
+        for i in range(1, 4):
             massure = client.read_holding_registers(6, 4, unit=unitOld)
             print(massure.registers[0:])
-            time.sleep(1)
+            time.sleep(0.3)
         testVar = input("Czy chcesz zmienic adres z {} na {} ( t/n).".format(unitOld, unitNew))
         if testVar == "t" or testVar == 'T':
             print('Zmieniam adres')
-            time.sleep(2)
+            time.sleep(1)
             if rr.registers[0] == unitOld:
                 print('Zmieniam adres z {} na {}'.format(unitOld, unitNew))
                 wr = client.write_register(start, unitNew, unit=unitOld)
-                time.sleep(3)
+                time.sleep(1)
                 print('Przeprowadzono zmiane adresu')
                 rr = client.read_holding_registers(start, count, unit=unitNew)
                 print('Adres urzadzenia {},\nPredkosc jest ustawiona na {},'.format(rr.registers[0], rr.registers[1]))
-                time.sleep(2)
+                time.sleep(1)
 
             for i in range(1, 5):
                 massure = client.read_holding_registers(6, 4, unit=unitNew)
                 print(massure.registers[0:])
-                time.sleep(1)
+                time.sleep(0.3)
 
 
 
