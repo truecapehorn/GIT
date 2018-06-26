@@ -34,19 +34,22 @@ def adresCheck(unit_start=arg_1, unit_stop=arg_2, speed=arg_3, add_start=arg_4 -
             add_error=[]
             for i in range(unit_range[0],unit_range[1]+1):
                 try:
-                    unit = i
                     client = ModbusClient(method='rtu', port=com, baudrate=speed, stopbits=1, parity='N', bytesize=8,
-                                          timeout=3)
+                                          timeout=2)
                     connection = client.connect()
-                    massure = client.read_holding_registers(add_start, len, unit=i)
-                    print("Wartosci dla adresu {} : {}".format(i, massure.registers[0:]))
+                    if connection == True:
+                        massure = client.read_holding_registers(add_start, len, unit=i)
+                        print("Wartosci dla adresu {} : {}".format(i, massure.registers[0:]))
+                    else:
+                        print('Złe adresy rejstrow')
                     client.close()
-                    time.sleep(0.5)
+                    time.sleep(0.2)
+
+
                 except AttributeError:
-                    add_error.append(unit)
-                    print('Błąd połaczenia z adresem: {} {}'.format(unit,add_error))
+                    print('Błąd połaczenia z adresem: {}'.format(i))
                     client.close()
-                    time.sleep(0.5)
+                    time.sleep(0.1)
                     continue
 
             time.sleep(1)
