@@ -13,7 +13,7 @@ def port():
         port = '/dev/ttyUSB0'
         print('dariwn')
     elif platform == "win32":
-        port = 'com3'
+        port = 'com2'
         print('windows')
     return port
 
