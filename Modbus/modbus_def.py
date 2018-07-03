@@ -19,4 +19,11 @@ def port():
 
 
 
+if __name__ == '__main__':
+
+    print('to jest to')
+    print('\rco jest i\ntak mialo byc')
+
+
+
 
