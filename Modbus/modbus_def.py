@@ -8,6 +8,9 @@ from sys import platform
 def port():
     if platform == "linux" or platform == "linux2":
         port = '/dev/ttyUSB0'
+        #port = '/dev/virtualcom0'
+        #port='/dev/pts/1'
+
         print('linux')
     elif platform == "darwin":
         port = '/dev/ttyUSB0'
@@ -23,7 +26,9 @@ def port_v2():
     port='non'
     ktoryPort = input('Jaki Port chesz wybrać\n1: dev/ttyUSB0\n2: com2\n3: com3\n4: com4\n5: com5\n')
     if ktoryPort =='1':
-        port = '/dev/ttyUSB0'
+        #port = '/dev/ttyUSB0'
+        port = '/dev/virtualcom0'
+
     elif ktoryPort=='2':
         port = 'com2'
     elif ktoryPort=='3':
