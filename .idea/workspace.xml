@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ce349ed-8931-4ffb-ad97-40aa1fe3e7a8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/testy/timeit_tescik.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GIT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GIT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modbus/modbus_add_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modbus/modbus_add_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modbus/modbus_def.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modbus/modbus_def.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modbus/tcp_modbus_add_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modbus/tcp_modbus_add_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modbus/API/modbus_rtu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modbus/API/modbus_rtu.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,29 +13,73 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="modbus_add_read.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="67" column="46" lean-forward="true" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
-              <folding>
-                <element signature="e#47#114#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="timeit_tescik.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testy/timeit_tescik.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.6280295">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="modbus_rtu.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Modbus/MODBUS_TCP/modbus_rtu.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="357">
+                  <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#47#114#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="modbus_rtu.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Modbus/API/modbus_rtu.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="410">
+                  <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+                  <folding>
+                    <element signature="e#47#114#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="modbus_add_read_staski.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="433">
+                  <caret line="108" column="16" lean-forward="true" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+                  <folding>
+                    <element signature="e#47#114#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="modbus_add_change_staski.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_change_staski.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="452">
+                  <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="webhmiAPI.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/webHMI/webhmiAPI.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="328">
+                  <caret line="145" selection-start-line="145" selection-end-line="154" selection-end-column="18" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,23 +96,25 @@
       <list>
         <option value="$PROJECT_DIR$/testy/test.py" />
         <option value="$PROJECT_DIR$/testy/platform.py" />
-        <option value="$PROJECT_DIR$/Modbus/tcp_modbus_add_read.py" />
         <option value="$PROJECT_DIR$/testy/timeit_tescik.py" />
+        <option value="$PROJECT_DIR$/Modbus/modbus_def.py" />
+        <option value="$PROJECT_DIR$/Modbus/tcp_modbus_add_read.py" />
         <option value="$PROJECT_DIR$/Modbus/modbus_add_read.py" />
+        <option value="$PROJECT_DIR$/Modbus/MODBUS_TCP/modbus_rtu.py" />
+        <option value="$PROJECT_DIR$/Modbus/API/modbus_rtu.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="55" />
-    <option name="y" value="25" />
-    <option name="width" value="1545" />
-    <option name="height" value="875" />
+    <option name="width" value="960" />
+    <option name="height" value="1160" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -84,12 +125,33 @@
             <path>
               <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
               <item name="GIT" type="462c0819:PsiDirectoryNode" />
+              <item name="ADRESY" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GIT" type="462c0819:PsiDirectoryNode" />
+              <item name="BLEBOX" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GIT" type="462c0819:PsiDirectoryNode" />
               <item name="Modbus" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
               <item name="GIT" type="462c0819:PsiDirectoryNode" />
+              <item name="Modbus" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GIT" type="462c0819:PsiDirectoryNode" />
               <item name="testy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GIT" type="462c0819:PsiDirectoryNode" />
+              <item name="webHMI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GIT" type="b2602c69:ProjectViewProjectNode" />
@@ -100,11 +162,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../StrefaKursow" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Modbus/API" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -117,6 +178,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\PYCHARM\GIT\Modbus\API" />
+      <recent name="C:\Users\User\Documents\PYCHARM\GIT\Modbus\MODBUS_TCP" />
       <recent name="$PROJECT_DIR$/testy" />
     </key>
   </component>
@@ -132,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.timeit_tescik">
+  <component name="RunManager" selected="Python.modbus_rtu">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
       <module name="GIT" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,7 +214,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="krzywaHandan" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="modbus_add_read" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GIT" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,17 +222,17 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Modbus" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testy/krzywaHandan.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\Documents\PYCHARM\GIT\Modbus\modbus_add_read_staski.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="loctime" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="modbus_rtu" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GIT" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -177,11 +240,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Modbus/API" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testy/loctime.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Modbus/API/modbus_rtu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -243,19 +306,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python.krzywaHandan" />
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.loctime" />
       <item itemvalue="Python.platform" />
       <item itemvalue="Python.timeit_tescik" />
+      <item itemvalue="Python.modbus_add_read" />
+      <item itemvalue="Python.modbus_rtu" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.modbus_rtu" />
+        <item itemvalue="Python.modbus_add_read" />
         <item itemvalue="Python.timeit_tescik" />
         <item itemvalue="Python.platform" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.loctime" />
-        <item itemvalue="Python.krzywaHandan" />
       </list>
     </recent_temporary>
   </component>
@@ -284,22 +347,36 @@
       <option name="project" value="LOCAL" />
       <updated>1524918480740</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="staski">
+      <created>1532002824688</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1532002824688</updated>
+    </task>
+    <task id="LOCAL-00004" summary="zabawa w kasy">
+      <created>1532003029359</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532003029359</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25256222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25500527" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50032365" side_tool="true" weight="0.3633987" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286385" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32884097" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49967638" visible="true" weight="0.3630673" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.33301252" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49967638" visible="true" weight="0.3628489" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32614556" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.22714148" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39942253" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -340,17 +417,114 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="zmiany po formacie" />
-    <option name="LAST_COMMIT_MESSAGE" value="zmiany po formacie" />
+    <MESSAGE value="staski" />
+    <MESSAGE value="zabawa w kasy" />
+    <option name="LAST_COMMIT_MESSAGE" value="zabawa w kasy" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py</url>
+          <line>3</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Modbus/tcp_modbus_add_read.py">
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#47#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#47#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+          <folding>
+            <element signature="e#47#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/tcp_modbus_add_read_staski.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" column="35" lean-forward="true" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def.py">
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -359,7 +533,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def.py">
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -375,7 +549,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read.py">
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
@@ -530,36 +704,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_change.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/tcp_modbus_add_read.py">
+    <entry file="file://$PROJECT_DIR$/testy/timeit_tescik.py" />
+    <entry file="file://$PROJECT_DIR$/Modbus/tcp_modbus_add_read_staski.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="313">
+          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def.py">
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testy/timeit_tescik.py">
+    <entry file="file://$PROJECT_DIR$/webHMI/clasyTest6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        <state relative-caret-position="-1163" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/MODBUS_TCP/modbus_rtu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding>
+            <element signature="e#47#114#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read.py">
+    <entry file="file://$PROJECT_DIR$/webHMI/webhmiAPI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="67" column="46" lean-forward="true" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        <state relative-caret-position="328">
+          <caret line="145" selection-start-line="145" selection-end-line="154" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_change_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/modbus_add_read_staski.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="108" column="16" lean-forward="true" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+          <folding>
+            <element signature="e#47#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modbus/API/modbus_rtu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
           <folding>
             <element signature="e#47#114#0" expanded="true" />
           </folding>

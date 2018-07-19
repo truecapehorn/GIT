@@ -25,7 +25,7 @@ def adresCheck(unit_start=arg_1, unit_stop=arg_2, address=arg_3, add_start=arg_4
                                                                                                              address,
                                                                                                              add_start + 1,
                                                                                                              add_start + len,
-                                                                                                             23))
+                                                                                                             com))
 
     count = 0
     connection = True
