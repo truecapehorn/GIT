@@ -7,16 +7,13 @@ from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 from collections import OrderedDict
 import time
-import sys
-from sys import platform
-from modbus_def import port
-from time import clock
+
 
 
 class Api():
     ''' Klasy do obsłogi Modbus RTU'''
 
-    def __init__(self, method='rtu', port='com2', baudrate=9600, stopbits=2, parity='N', bytesize=8, timeout=5):
+    def __init__(self, method='rtu', port='com2', baudrate=9600, stopbits=2, parity='N', bytesize=8, timeout=1):
         self.method = method
         self.port = port
         self.baudrate = baudrate
@@ -31,20 +28,32 @@ class Api():
 
         return client
 
-    def read_holding(self,reg_start, reg_lenght, mod_adress):
+    def read_holding(self,reg_start, reg_lenght, unit_start, unit_stop):
+        unit_range = (unit_start, unit_stop)
 
-
-
-
-
-        try:
-            client = ModbusClient(method='rtu', port=com, baudrate=2400, stopbits=1, parity='N', bytesize=8, timeout=3)
+        while True:
+            client = self.connection()
             connection = client.connect()
+
             time.sleep(0.3)
-            massure = client.read_holding_registers(reg_start - 1, reg_lenght, unit=mod_adress)
-            print('Rejestry :', massure.registers[0:])
-            # print(connection)
-            client.close()
-            return connection, massure.registers
-        except AttributeError:
-            print('Połaczenie z adresem {} nie udane'.format(mod_adress))
+            for i in range(unit_range[0], unit_range[1] + 1):
+                try:
+                    massure = client.read_holding_registers(reg_start, reg_lenght, unit=i)
+                    print('Rejestry dla adresu {}: {}'.format(i,massure.registers[0:]))
+                    client.close()
+                except AttributeError:
+                    print('Połaczenie z adresem {} nie udane'.format(i))
+                    continue
+            print("\n")
+
+
+
+
+
+
+if __name__ == '__main__':
+
+    rtu = Api()
+    print(Api.__doc__)
+
+    readholding = rtu.read_holding(0,10,1,10)
