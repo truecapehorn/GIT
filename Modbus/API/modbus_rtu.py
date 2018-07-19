@@ -7,6 +7,8 @@ from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 from collections import OrderedDict
 import time
+import numpy as np
+
 
 
 class Api():
@@ -83,6 +85,8 @@ class Api():
                 start=reg_start
                 c=0
                 try:
+
+
                     for a in range(1,reg_lenght+1):
                         result = client.read_input_registers(start+c, 2, unit=i)
                         res.append(result.registers)
