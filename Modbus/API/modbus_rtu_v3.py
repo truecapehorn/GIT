@@ -59,8 +59,8 @@ class Api():
                     elif data_type == 'float':
                         massure.registers[0::2], massure.registers[1::2] = massure.registers[1::2], massure.registers[
                                                                                                     0::2]
-                        data = np.array([massure.registers[0:]], dtype=np.int16)
-                        data_as_float = data.view(dtype=np.float32)
+                        data_arr = np.array([massure.registers[0:]], dtype=np.int16)
+                        data_as_float = data_arr.view(dtype=np.float32)
                         print('Rejestry {} dla adresu {}: {}'.format(data_type,i, data_as_float.tolist()))
                     client.close()
                 except AttributeError:
@@ -98,8 +98,8 @@ class Api():
                     elif data_type == 'float':
                         massure.registers[0::2], massure.registers[1::2] = massure.registers[1::2], massure.registers[
                                                                                                     0::2]
-                        data = np.array([massure.registers[0:]], dtype=np.int16)
-                        data_as_float = data.view(dtype=np.float32)
+                        data_arr = np.array([massure.registers[0:]], dtype=np.int16)
+                        data_as_float = data_arr.view(dtype=np.float32)
                         print('Rejestry {} dla adresu {}: {}'.format(data_type,i, data_as_float.tolist()))
                     client.close()
                 except AttributeError:
@@ -122,6 +122,6 @@ if __name__ == '__main__':
     unith = [3,5,7,9,10]
     uniti = [64]
     fif=[1]
-    readholding = rtu.read_holding(unith, 0, 10, 'ui16', 1)
+    readholding = rtu.read_holding(unith, 0, 10, 'ui16', 5)
     readinput1 = rtu.read_input(uniti, 0, 10, 'ui16', 5)
-    readinput2 = fifek.read_input(fif, 0, 70, 'float', 5)
+    #readinput2 = fifek.read_input(fif, 0, 70, 'float', 5)
