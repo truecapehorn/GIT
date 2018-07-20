@@ -112,9 +112,9 @@ class Api():
 
 
 if __name__ == '__main__':
-    rtu = Api(port='/dev/ttyUSB3')
+    rtu = Api()
     print(Api.__doc__)
 
     #readholding = rtu.read_holding(1, 32, 0, 10,3)
-    readinput=rtu.read_input(1,32,0,10,3)
+    readinput=rtu.read_input(63,64,0,5,6)
 
