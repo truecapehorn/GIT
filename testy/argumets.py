@@ -1,5 +1,3 @@
-import sys
-from modbus_rtu_v3 import Api
 import argparse
 from ast import literal_eval
 
@@ -48,35 +46,6 @@ print ('reg_start       =', results.reg_start)
 print ('reg_lenght       =', results.reg_lenght)
 print ('typ rejestru   =', results.data_type)
 print ('qty     =', results.qty)
-
-
-
-speed=results.speed
-unit=units
-reg_start=results.reg_start
-reg_lenght=results.reg_lenght
-data_type=results.data_type
-qty=results.qty
-
-rtu=Api(speed=speed)
-
-if data_type == 'ui16':
-    readholding = rtu.read_holding(unit, reg_start, reg_lenght, data_type, qty)
-elif data_type == 'float':
-    readinput = rtu.read_input(unit, reg_start, reg_lenght, data_type, qty)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
