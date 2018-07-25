@@ -1,4 +1,3 @@
-
 from modbus_rtu_v3 import Api
 import argparse
 
@@ -16,8 +15,6 @@ python modbus_master.py -h
 
 
 '''
-
-
 
 parser = argparse.ArgumentParser()
 
@@ -45,26 +42,37 @@ parser.add_argument('-f', action='store_const', dest='data_type',
 parser.add_argument('-q', action='store', dest='qty', default=3,
                     help='Ilosc powtorzen def: 3')
 
-parser.add_argument('-a', action='store_true', default=False,
-                    dest='boolean_switch',
+parser.add_argument('-aa', action='store_true', default=False,
+                    dest='app_add_change',
                     help='Uruchominie zmiany adresu dla appar')
 
-parser.add_argument('-o', action='store', dest='unit_old',
-                    help='Stary unit adres ')
+parser.add_argument('-af', action='store_true', default=False,
+                    dest='fif_add_change',
+                    help='Uruchominie zmiany adresu dla fif')
 
-parser.add_argument('-n', action='store', dest='unit_new',
-                    help='Nowy unit adres')
+parser.add_argument('-as', action='store_true', default=False,
+                    dest='app_speed_change',
+                    help='Uruchominie zmiany predkosci dla appr')
+
+parser.add_argument('-o', action='store', dest='valOld',
+                    help='Stara wartosc ')
+
+parser.add_argument('-n', action='store', dest='valNew',
+                    help='Nowa wartosc')
 
 parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
-results = parser.parse_args() # pobranie rezultatow parsera
-add_change = results.boolean_switch # sprawdzenie co chemy zrobic ( odczytanie rej, czy zmiana adresu )
+results = parser.parse_args()  # pobranie rezultatow parsera
 
-if add_change == False:
+add_change_app = results.app_add_change  # sprawdzenie co chemy zrobic ( odczytanie rej, czy zmiana adresu )
+add_change_fif = results.fif_add_change  # sprawdzenie co chemy zrobic ( odczytanie rej, czy zmiana adresu )
+speed_change_app = results.app_speed_change  # sprawdzenie co chemy zrobic ( odczytanie rej, czy zmiana adresu )
 
-    units = []
-    for i in results.unit:
-        units.append(int(i))
+units = []
+for i in results.unit:
+    units.append(int(i))
+
+if add_change_app == False and add_change_fif == False and speed_change_app == False:
 
     print(
         "\n     Data:\nspeed = {},\nunit = {},\nreg_start= {},\nreg_lenght= {},\nreg_type= {},\nqty= {},".format(
@@ -85,8 +93,19 @@ if add_change == False:
         readholding = rtu.read_holding(unit, reg_start, reg_lenght, data_type, qty)
     elif data_type == 'float':
         readinput = rtu.read_input(unit, reg_start, reg_lenght, data_type, qty)
-else:
-    unit_old = int(results.unit_old)
-    unit_new = int(results.unit_new)
-    rtu = Api(speed=9600)
-    add = rtu.appar_add_change(unit_old, unit_new, 'ui16')
+
+elif add_change_app == True or add_change_fif == True or speed_change_app == True:
+
+    valNew = int(results.valNew)
+    if add_change_app == True:
+        rtu = Api(speed=9600)
+        add = rtu.appar_add_change(units[0],units[0], valNew, 'ui16')
+    elif add_change_fif == True:
+        rtu = Api(speed=9600)
+        add = rtu.fif_add_change(units[0],units[0], valNew, 'ui16')
+    elif speed_change_app == True:
+        valOld = int(results.valOld)
+        rtu = Api(speed=valOld)
+        add = rtu.appar_speed_change(units[0], valOld, valNew, 'ui16')
+        rtu=Api(speed=valNew)
+        check=rtu.read_holding(units,0,30,'ui16',5)

@@ -19,8 +19,8 @@
       <file leaf-file-name="modbus_rtu_v3.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Modbus/API/modbus_rtu_v3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2567">
-              <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+            <state relative-caret-position="112">
+              <caret line="178" column="51" lean-forward="true" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -28,11 +28,8 @@
       <file leaf-file-name="modbus_master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Modbus/API/modbus_master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-716">
-              <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-              <folding>
-                <element signature="e#1#30#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="690">
+              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
             </state>
           </provider>
         </entry>
@@ -49,9 +46,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>chunk</find>
+      <find>unitNew</find>
+      <find>unit_old</find>
+      <find>unit_new'</find>
+      <find>unit_new</find>
     </findStrings>
     <replaceStrings>
       <replace>massure.registers</replace>
+      <replace>valNew</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -85,7 +87,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,6 +114,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -146,7 +148,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.modbus_master">
+  <component name="RunManager" selected="Python.modbus_rtu_v3">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
       <module name="GIT" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -265,8 +267,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.modbus_master" />
         <item itemvalue="Python.modbus_rtu_v3" />
+        <item itemvalue="Python.modbus_master" />
         <item itemvalue="Python.modbus_rtu_v2" />
         <item itemvalue="Python.modbus_rtu" />
         <item itemvalue="Python.modbus_add_read" />
@@ -326,21 +328,27 @@
       <option name="project" value="LOCAL" />
       <updated>1532349972483</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dodanie opcji ADDRES CHANGE">
+      <created>1532437416355</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532437416355</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18914647" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18914647" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50032365" side_tool="true" weight="0.3633987" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286385" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.33205006" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49967638" weight="0.23291627" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3176131" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19153032" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39942253" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -386,7 +394,8 @@
     <MESSAGE value="staski" />
     <MESSAGE value="zabawa w kasy" />
     <MESSAGE value="dodanie opcji do modbus master" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie opcji do modbus master" />
+    <MESSAGE value="dodanie opcji ADDRES CHANGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie opcji ADDRES CHANGE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -396,8 +405,24 @@
           <line>3</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="8" />
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>reg_start</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Modbus/modbus_def_staski.py">
@@ -706,9 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -721,18 +743,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Modbus/API/modbus_master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-716">
-          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding>
-            <element signature="e#1#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="690">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Modbus/API/modbus_rtu_v3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+        <state relative-caret-position="112">
+          <caret line="178" column="51" lean-forward="true" selection-start-line="178" selection-start-column="51" selection-end-line="178" selection-end-column="51" />
         </state>
       </provider>
     </entry>

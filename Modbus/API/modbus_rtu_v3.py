@@ -13,7 +13,7 @@ import numpy as np
 class Api():
     ''' Obsłoga Modbus RTU'''
 
-    def __init__(self, method='rtu', port='com2', speed=9600, stopbits=2, parity='N', bytesize=8, timeout=1):
+    def __init__(self, method='rtu', port='com2', speed=0, stopbits=1, parity='N', bytesize=8, timeout=1):
         self.method = method
         self.port = port
         self.speed = speed
@@ -40,11 +40,12 @@ class Api():
         return client
 
     def read_holding(self, unit, reg_start, reg_lenght, data_type, qty=5):
+        data = []
         client = self.connection()
         connection = client.connect()
-        print("Odczyt adresow holding reg od {} do {} dla urzadzen {} : {}".format(reg_start,
+        print("Odczyt adresow holding reg od {} do {} dla urzadzen {} predkosc {}: {}".format(reg_start,
                                                                                    reg_start + reg_lenght,
-                                                                                   unit,
+                                                                                   unit,self.speed,
                                                                                    connection))
         sesion = 1
         while connection and sesion <= qty:
@@ -63,7 +64,7 @@ class Api():
                         data_arr = np.array([massure.registers[0:]], dtype=np.int16)
                         data_as_float = data_arr.view(dtype=np.float32)
                         data = data_as_float
-                        print('Rejestry {} dla adresu {}: {}'.format(data_type, i, data))
+                        print('Rejestry {} dla adresu {}: {}'.format(data_type, i, data.tolist()))
                     client.close()
                 except AttributeError:
                     print('Połaczenie z adresem {} nie udane'.format(i))
@@ -72,20 +73,26 @@ class Api():
                     print('Przerwanie przez urzytkownika')
                     client.close()
                     break
+            client.close()
 
             sesion += 1
             print("\n")
-        return data
+        if len(data) != 0:
+            return data
+        else:
+            print('Error:  Nie mozna polaczyc sie z adresem\n')
+            exit()
 
     def read_input(self, unit, reg_start, reg_lenght, data_type, qty=5):
+        data = []
         client = self.connection()
         connection = client.connect()
         if data_type == 'float':
             reg_lenght += 2
-        print("Odczyt adresow input reg od {} do {} dla urzadzen {} : {}".format(reg_start,
-                                                                                 (reg_start + reg_lenght),
-                                                                                 unit,
-                                                                                 connection))
+        print("Odczyt adresow holding reg od {} do {} dla urzadzen {} predkosc {}: {}".format(reg_start,
+                                                                                   reg_start + reg_lenght,
+                                                                                   unit,self.speed,
+                                                                                   connection))
         sesion = 1
         while connection and sesion <= qty:
             print("Sesja nr: ", sesion)
@@ -95,15 +102,16 @@ class Api():
                 try:
                     client.connect()
                     massure = client.read_input_registers(reg_start, reg_lenght, unit=i)
-
+                    data = massure.registers[0:]
                     if data_type == 'ui16':
-                        print('Rejestry {} dla adresu {}: {}'.format(data_type, i, massure.registers[0:]))
+                        print('Rejestry {} dla adresu {}: {}'.format(data_type, i, data))
                     elif data_type == 'float':
                         massure.registers[0::2], massure.registers[1::2] = massure.registers[1::2], massure.registers[
                                                                                                     0::2]
                         data_arr = np.array([massure.registers[0:]], dtype=np.int16)
                         data_as_float = data_arr.view(dtype=np.float32)
-                        print('Rejestry {} dla adresu {}: {}'.format(data_type, i, data_as_float.tolist()))
+                        data = data_as_float
+                        print('Rejestry {} dla adresu {}: {}'.format(data_type, i, data.tolist()))
                     client.close()
                 except AttributeError:
                     print('Połaczenie z adresem {} nie udane'.format(i))
@@ -115,44 +123,91 @@ class Api():
 
             sesion += 1
             print("\n")
+        if len(data) != 0:
+            return data
+        else:
+            print('Error:  Nie mozna polaczyc sie z adresem\n')
+            exit()
 
     def write_register(self, reg_add, val, mod_adress):
+        client = self.connection()
+        connection = client.connect()
         try:
-            client = self.connection()
-            connection = client.connect()
             time.sleep(0.3)
             client.write_register(reg_add, val, unit=mod_adress)
-            client.close()
         except AttributeError:
             print('Połaczenie z adresem {} nie udane'.format(mod_adress))
+            client.close()
+        client.close()
         return print('Nowa wartosc zapisana')
 
-    def appar_add_change(self, unitOld, unitNew, data_type):
+    def appar_add_change(self,unitAdd ,valOld, valNew, data_type):
         unit = []
-        unit.append(unitOld)
-        print(unit)
+        unit.append(unitAdd)
         reg = self.read_holding(unit, 0, 30, data_type, 5)
-        if reg != None:
-            testVar = input("Czy chcesz zmienic adres z {} na {} ( t/n).".format(unitOld, unitNew))
-            if testVar == "t" or testVar == 'T' and reg[1][28] == unitOld:
-                print('Zmieniam adres z {} na {}'.format(unitOld, unitNew))
-                self.write_register(28, unitNew, unitOld)
+        print('Stary adres = ', reg[28])
+        if reg[28] == valOld:
+            testVar = input("Czy chcesz zmienic adres z {} na {} ( t/n).".format(valOld, valNew))
+            if testVar == "t" or testVar == 'T':
+                print('Zmieniam adres z {} na {}'.format(valOld, valNew))
+                self.write_register(28, valNew, valOld)
                 time.sleep(0.5)
                 unit = []
-                print('Przeprowadzono zmiane adresu z {} na {}'.format(unitOld, unitNew))
-                unit.append(unitNew)
+                print('Przeprowadzono zmiane adresu z {} na {}'.format(valOld, valNew))
+                unit.append(valNew)
                 self.read_holding(unit, 0, 30, data_type, 5)
+        else:
+            print('Error: Adres inny niz ', valOld)
+        print('\n')
+
+    def fif_add_change(self,unitAdd ,valOld, valNew, data_type):
+        unit = []
+        unit.append(unitAdd)
+        reg = self.read_holding(unit, 256, 4, data_type, 5)
+        print('Stary adres = ', reg[0])
+        if reg[0] == valOld:
+            testVar = input("Czy chcesz zmienic adres z {} na {} ( t/n).".format(valOld, valNew))
+            if testVar == "t" or testVar == 'T':
+                print('Zmieniam adres z {} na {}'.format(valOld, valNew))
+                self.write_register(256, valNew, valOld)
+                time.sleep(0.5)
+                unit = []
+                print('Przeprowadzono zmiane adresu z {} na {}'.format(valOld, valNew))
+                unit.append(valNew)
+                self.read_holding(unit, 256, 4, data_type, 5)
+        else:
+            print('Error: Adres inny niz ', valOld)
+        print('\n')
+
+    def appar_speed_change(self, unitAdd,valOld, valNew, data_type):
+        unit = []
+        unit.append(unitAdd)
+        reg = self.read_holding(unit, 0, 30, data_type, 5)
+        print('Stara predkosc = ', reg[29])
+        if reg[29] == valOld:
+            testVar = input("Czy chcesz zmienic predkosc z {} na {} ( t/n).".format(valOld, valNew))
+            if testVar == "t" or testVar == 'T':
+                print('Zmieniam predkosc z {} na {}'.format(valOld, valNew))
+                self.write_register(29, valNew, unitAdd)
+                time.sleep(0.5)
+                unit = []
+                print('Przeprowadzono zmiane predkosci z {} na {}'.format(valOld, valNew))
+        else:
+            print('Error: Predkosc inna niz ', valOld)
         print('\n')
 
 
 if __name__ == '__main__':
-    rtu = Api()
+    rtu = Api(port='com2')
     fifek = Api(speed=2400)
     print(Api.__doc__)
     unith = [3]
     uniti = [64]
     fif = [1]
-    readholding = rtu.read_holding(unith, 0, 10, 'ui16', 10)
+    # readholding = rtu.read_holding(unith, 0, 10, 'ui16', 10)
+
     # readinput1 = rtu.read_input(uniti, 0, 10, 'ui16', 5)
     # readinput2 = fifek.read_input(fif, 0, 70, 'float', 5)
-    #writereg = rtu.appar_add_change(1, 11, 'ui16')
+    writereg = rtu.appar_add_change(1,1, 11, 'ui16')
+    fifchenge = rtu.fif_add_change(11,11, 23, 'ui16')
+    speedchenge=rtu.appar_speed_change(1,9600,2400,'ui16')
