@@ -10,7 +10,6 @@ import time
 import numpy as np
 
 
-
 class Api():
     ''' Obsłoga Modbus RTU'''
 
@@ -71,7 +70,7 @@ class Api():
         client = self.connection()
         connection = client.connect()
         print("Odczyt adresow input reg od {} do {} dla urzadzen od {} do {}: {}".format(reg_start,
-                                                                                         2*(reg_start + reg_lenght),
+                                                                                         2 * (reg_start + reg_lenght),
                                                                                          unit_start,
                                                                                          unit_stop,
                                                                                          connection))
@@ -80,21 +79,19 @@ class Api():
             print("Sesja nr: ", sesion)
             time.sleep(0.3)
             for i in range(unit_start, unit_stop + 1):
-                res=[]
-                dec=[]
-                start=reg_start
-                c=0
+                res = []
+                dec = []
+                start = reg_start
+                c = 0
                 try:
 
-
-                    for a in range(1,reg_lenght+1):
-                        result = client.read_input_registers(start+c, 2, unit=i)
+                    for a in range(1, reg_lenght + 1):
+                        result = client.read_input_registers(start + c, 2, unit=i)
                         res.append(result.registers)
-                        c+=2
-
+                        c += 2
 
                     for d in res:
-                        #decoder = BinaryPayloadDecoder.fromRegisters(d, byteorder=Endian.Big, wordorder=Endian.Little)
+                        # decoder = BinaryPayloadDecoder.fromRegisters(d, byteorder=Endian.Big, wordorder=Endian.Little)
                         decoder = BinaryPayloadDecoder.fromRegisters(d, byteorder=Endian.Little, wordorder=Endian.Big)
                         massure = (decoder.decode_32bit_float())
                         dec.append(massure)
@@ -115,6 +112,5 @@ if __name__ == '__main__':
     rtu = Api()
     print(Api.__doc__)
 
-    #readholding = rtu.read_holding(1, 32, 0, 10,3)
-    readinput=rtu.read_input(63,64,0,5,6)
-
+    # readholding = rtu.read_holding(1, 32, 0, 10,3)
+    readinput = rtu.read_input(63, 64, 0, 5, 6)
