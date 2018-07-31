@@ -4,3 +4,5 @@ myvenv
 db.sqlite3
 .DS_Store
 venv
+startup.txt
+.idea
