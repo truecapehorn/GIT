@@ -6,4 +6,4 @@ logi = open('C:\\Users\\User\\Documents\\PYCHARM\\GIT\\testy\\startup.txt', 'a',
 now = datetime.datetime.now()
 print('Uruchomienie windowsa było o godzinie : ',now, file=logi)
 logi.close()
-time.sleep(5)
+time.sleep(10)
