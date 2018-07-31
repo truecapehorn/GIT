@@ -1,5 +1,10 @@
+___pycache___/*
+*.conf
+*.log
+*.db
+*.tmp
+password.txt
 *.pyc
-__pycache__*
 myvenv
 db.sqlite3
 .DS_Store
