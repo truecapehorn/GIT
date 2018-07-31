@@ -4,4 +4,4 @@ import datetime,time
 
 now = datetime.datetime.now()
 print('Teraz jest godzina : ', now)
-time.sleep(10)
+time.sleep(2)
