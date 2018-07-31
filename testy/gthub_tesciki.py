@@ -23,3 +23,5 @@ time.sleep(2)
 
 """Uruchomienie programu było o godzinie : 2018-07-31 10:50:16.625098"""
 
+"""Uruchomienie programu było o godzinie : 2018-07-31 12:13:24.506388"""
+
